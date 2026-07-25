@@ -672,14 +672,6 @@
             color: var(--primary-color);
         }
 
-        .card-details {
-            display: none;
-            background: #f9f9f9;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-        }
-
         .error-msg {
             color: #d32f2f;
             background: #ffebee;
@@ -928,7 +920,7 @@
         </ul>
 
         <h3>How to Request a Return:</h3>
-        <p>1. Contact our support team via email at <strong>support@asrafshop.com</strong> or call <strong>+880 1700-000000</strong>.</p>
+        <p>1. Contact our support team via WhatsApp/Phone at <strong>+880 1402-356113</strong> or email at <strong>support@asrafshop.com</strong>.</p>
         <p>2. Share your Order ID along with photo/video proof of the product issue.</p>
         <p>3. Once approved, hand over the package to our pickup courier or send it to our hub.</p>
     </div>
@@ -981,17 +973,8 @@
                 <div class="pay-option selected" id="opt-cod" onclick="selectPayment('cod')">
                     <i class="fa-solid fa-hand-holding-dollar"></i><br>Cash on Delivery
                 </div>
-                <div class="pay-option" id="opt-card" onclick="selectPayment('card')">
-                    <i class="fa-regular fa-credit-card"></i><br>Credit/Debit Card
-                </div>
-            </div>
-
-            <!-- Credit Card Form -->
-            <div class="card-details" id="cardForm">
-                <input type="text" id="cardNumber" placeholder="Card Number (১৬ ডিজিট কার্ড নম্বর)" maxlength="16">
-                <div style="display: flex; gap: 10px;">
-                    <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5">
-                    <input type="password" id="cardCVC" placeholder="CVC" maxlength="3">
+                <div class="pay-option" id="opt-whatsapp" onclick="selectPayment('whatsapp')">
+                    <i class="fa-brands fa-whatsapp" style="color: #25D366;"></i><br>WhatsApp Order
                 </div>
             </div>
 
@@ -1014,7 +997,7 @@
             <div class="footer-col">
                 <h4>Contact Support</h4>
                 <p><i class="fa-solid fa-envelope"></i> Email: support@asrafshop.com</p>
-                <p><i class="fa-solid fa-phone"></i> Phone: +880 1700-000000</p>
+                <p><i class="fa-brands fa-whatsapp"></i> WhatsApp: +880 1402-356113</p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -1038,7 +1021,7 @@
         }
         setInterval(nextSlide, 4500);
 
-        // Product Dataset with Multi-images (3 to 6 images per product)
+        // Product Dataset with Multi-images
         const defaultProducts = [
             {
                 id: 1,
@@ -1415,14 +1398,12 @@
         function selectPayment(method) {
             selectedPayMethod = method;
             document.getElementById('opt-cod').classList.remove('selected');
-            document.getElementById('opt-card').classList.remove('selected');
+            document.getElementById('opt-whatsapp').classList.remove('selected');
 
             if(method === 'cod') {
                 document.getElementById('opt-cod').classList.add('selected');
-                document.getElementById('cardForm').style.display = 'none';
             } else {
-                document.getElementById('opt-card').classList.add('selected');
-                document.getElementById('cardForm').style.display = 'block';
+                document.getElementById('opt-whatsapp').classList.add('selected');
             }
         }
 
@@ -1442,22 +1423,13 @@
                 return;
             }
 
-            if(selectedPayMethod === 'card') {
-                const cardNum = document.getElementById('cardNumber').value.trim();
-                const cardExpiry = document.getElementById('cardExpiry').value.trim();
-                const cardCVC = document.getElementById('cardCVC').value.trim();
-
-                if(cardNum.length !== 16 || isNaN(cardNum)) {
-                    showError("❌ পেমেন্ট এরর: সঠিক ১৬ ডিজিটের ক্রেডিট/ডেবিট কার্ড নম্বর লিখুন।");
-                    return;
-                }
-                if(!cardExpiry || !cardCVC) {
-                    showError("❌ পেমেন্ট এরর: কার্ডের মেয়াদের তারিখ (MM/YY) ও CVC কোড প্রদান করুন।");
-                    return;
-                }
+            if (selectedPayMethod === 'whatsapp') {
+                const itemDetails = checkoutProduct ? (checkoutProduct[currentLang] || checkoutProduct['en']).name : `${cartCount} items in cart`;
+                const message = `Hello, I want to place an order:%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Email:* ${email}%0A*Address:* ${address}%0A*Order:* ${itemDetails}`;
+                window.open(`https://wa.me/8801402356113?text=${message}`, '_blank');
+            } else {
+                alert(`🎉 অভিনন্দন ${name}!\n\nআপনার অর্ডারটি সফলভাবে জমা হয়েছে।\nপেমেন্ট মেথড: Cash On Delivery\nখুব শীঘ্রই আমাদের প্রতিনিধি আপনার সাথে যোগাযোগ করবেন।`);
             }
-
-            alert(`🎉 অভিনন্দন ${name}!\n\nআপনার অর্ডারটি সফলভাবে জমা হয়েছে।\nপেমেন্ট মেথড: ${selectedPayMethod.toUpperCase()}\nখুব শীঘ্রই আমাদের প্রতিনিধি আপনার সাথে যোগাযোগ করবেন।`);
             
             closeCheckoutModal();
             cartCount = 0;
@@ -1466,9 +1438,6 @@
             document.getElementById('custPhone').value = '';
             document.getElementById('custEmail').value = '';
             document.getElementById('custAddress').value = '';
-            document.getElementById('cardNumber').value = '';
-            document.getElementById('cardExpiry').value = '';
-            document.getElementById('cardCVC').value = '';
         }
 
         function showError(msg) {
