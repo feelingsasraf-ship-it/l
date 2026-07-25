@@ -529,12 +529,13 @@
         }
         setInterval(nextSlide, 4500);
 
+        // এখানে অতিরিক্ত ও নতুন প্রোডাক্ট ডাটা যুক্ত করা হয়েছে
         const defaultProducts = [
             {
                 id: 1,
                 category: "shoes",
-                en: { name: "Premium Running Sports Shoes", category: "Shoes", desc: "These running sports shoes are extremely comfortable and durable." },
-                bn: { name: "প্রিমিয়াম রানিং স্পোর্টস শু", category: "জুতো", desc: "এই রানিং স্পোর্টস শু টি অত্যন্ত আরামদায়ক এবং টেকসই।" },
+                en: { name: "Premium Running Sports Shoes", category: "Shoes", desc: "These running sports shoes are extremely comfortable and durable for daily workouts." },
+                bn: { name: "প্রিমিয়াম রানিং স্পোর্টস শু", category: "জুতো", desc: "এই রানিং স্পোর্টস শু টি অত্যন্ত আরামদায়ক এবং দীর্ঘস্থায়ী ব্যবহারের উপযোগী।" },
                 price: 2800,
                 oldPrice: 3500,
                 images: ["https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80"]
@@ -542,8 +543,8 @@
             {
                 id: 2,
                 category: "electronics",
-                en: { name: "Wireless Over-Ear Headphones", category: "Electronics", desc: "High-bass noise-canceling Bluetooth headphones." },
-                bn: { name: "ওয়ারলেস ওভার-ইয়ার হেডফোন", category: "ইলেকট্রনিক্স", desc: "হাই-বেস নয়েজ ক্যানসেলেশন ব্লুটুথ হেডফোন।" },
+                en: { name: "Wireless Over-Ear Headphones", category: "Electronics", desc: "High-bass noise-canceling Bluetooth headphones with long battery life." },
+                bn: { name: "ওয়ারলেস ওভার-ইয়ার হেডফোন", category: "ইলেকট্রনিক্স", desc: "হাই-বেস নয়েজ ক্যানসেলেশন ও দীর্ঘ ব্যাটারি লাইফ সমৃদ্ধ ব্লুটুথ হেডফোন।" },
                 price: 1850,
                 oldPrice: 2400,
                 images: ["https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80"]
@@ -551,11 +552,56 @@
             {
                 id: 3,
                 category: "electronics",
-                en: { name: "Smart Fitness Watch Band", category: "Electronics", desc: "Waterproof smartwatch with heart rate monitor." },
-                bn: { name: "স্মার্ট ফিটনেস ওয়াচ ব্যান্ড", category: "ইলেকট্রনিক্স", desc: "হার্ট রেট মনিটর সহ ওয়াটারপ্রুফ স্মার্ট ওয়াচ।" },
+                en: { name: "Smart Fitness Watch Band", category: "Electronics", desc: "Waterproof smartwatch with active heart rate monitor and sleep tracking." },
+                bn: { name: "স্মার্ট ফিটনেস ওয়াচ ব্যান্ড", category: "ইলেকট্রনিক্স", desc: "হার্ট রেট মনিটর এবং স্লিপ ট্র্যাকিং সহ ওয়াটারপ্রুফ স্মার্ট ওয়াচ।" },
                 price: 2200,
                 oldPrice: 2900,
                 images: ["https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80"]
+            },
+            {
+                id: 4,
+                category: "electronics",
+                en: { name: "DSLR Professional Camera", category: "Electronics", desc: "4K ultra HD video recording camera with high optical zoom." },
+                bn: { name: "ডিএসএলআর প্রফেশনাল ক্যামেরা", category: "ইলেকট্রনিক্স", desc: "হাই অপটিক্যাল জুম সহ ৪কে আল্ট্রা এইচডি ভিডিও রেকর্ডিং ক্যামেরা।" },
+                price: 45000,
+                oldPrice: 52000,
+                images: ["https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=600&q=80"]
+            },
+            {
+                id: 5,
+                category: "fashion",
+                en: { name: "Men's Stylish Casual Jacket", category: "Fashion", desc: "Premium quality lightweight jacket designed for modern style." },
+                bn: { name: "মেনস স্টাইলিশ ক্যাজুয়াল জ্যাকেট", category: "ফ্যাশন", desc: "আধুনিক স্টাইলের জন্য প্রিমিয়াম কোয়ালিটির লাইটওয়েট জ্যাকেট।" },
+                price: 3200,
+                oldPrice: 4000,
+                images: ["https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=600&q=80"]
+            },
+            {
+                id: 6,
+                category: "fashion",
+                en: { name: "Minimalist Classic Sunglasses", category: "Fashion", desc: "UV400 protection stylish sunglasses for everyday use." },
+                bn: { name: "মিনিমালিস্ট ক্লাসিক সানগ্লাস", category: "ফ্যাশন", desc: "প্রতিদিনের ব্যবহারের জন্য ইউভি৪০০ প্রটেকশন সহ স্টাইলিশ সানগ্লাস।" },
+                price: 950,
+                oldPrice: 1500,
+                images: ["https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=600&q=80"]
+            },
+            {
+                id: 7,
+                category: "shoes",
+                en: { name: "Casual Canvas Sneakers", category: "Shoes", desc: "Trendy and lightweight canvas sneakers suited for casual outings." },
+                bn: { name: "ক্যাজুয়াল ক্যানভাস স্নিকার্স", category: "জুতো", desc: "যেকোনো সাধারণ আউটিংয়ের জন্য মানানসই ও হালকা ক্যানভাস স্নিকার্স।" },
+                price: 1650,
+                oldPrice: 2100,
+                images: ["https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=600&q=80"]
+            },
+            {
+                id: 8,
+                category: "fashion",
+                en: { name: "Classic Leather Wrist Watch", category: "Fashion", desc: "Elegant analog wrist watch with genuine leather strap." },
+                bn: { name: "ক্লাসিক লেদার রিস্ট ওয়াচ", category: "ফ্যাশন", desc: "জেনুইন লেদার স্ট্র্যাপ সহ মার্জিত অ্যানালগ হাতের ঘড়ি।" },
+                price: 2600,
+                oldPrice: 3200,
+                images: ["https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80"]
             }
         ];
 
@@ -758,19 +804,16 @@
 
             errorAlert.style.display = 'none';
 
-            // ভ্যালিডেশন চেক
             if(!name || !phone || !email || !address) {
                 showError("❌ সমস্যা: দয়া করে আপনার নাম, ফোন নম্বর, ইমেইল এবং ঠিকানা সঠিকভাবে পূরণ করুন।");
                 return;
             }
 
-            // ফোন নম্বর ১১ ডিজিট ফরম্যাট চেক
             if(phone.length < 11 || isNaN(phone)) {
                 showError("❌ সমস্যা: আপনার ১১ ডিজিটের সঠিক মোবাইল নম্বরটি লিখুন।");
                 return;
             }
 
-            // কার্ড পেমেন্ট চেক
             if(selectedPayMethod === 'card') {
                 const cardNum = document.getElementById('cardNumber').value.trim();
                 const cardExpiry = document.getElementById('cardExpiry').value.trim();
@@ -786,10 +829,8 @@
                 }
             }
 
-            // সফল মেসেজ দেখানো
             alert(`🎉 অভিনন্দন ${name}!\n\nআপনার অর্ডারটি সফলভাবে জমা হয়েছে।\nপেমেন্ট মেথড: ${selectedPayMethod.toUpperCase()}\nখুব শীঘ্রই আমাদের প্রতিনিধি আপনার সাথে যোগাযোগ করবেন।`);
             
-            // রিসেট
             closeCheckoutModal();
             cartCount = 0;
             document.getElementById('cartCount').innerText = 0;
