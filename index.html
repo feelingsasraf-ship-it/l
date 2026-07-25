@@ -36,7 +36,7 @@
 
         a { text-decoration: none; color: inherit; }
 
-        /* ----- TOP HEADER ----- */
+        /* HEADER */
         .header {
             background: var(--white);
             position: sticky;
@@ -112,7 +112,6 @@
             font-weight: bold;
         }
 
-        /* Language Switcher */
         .lang-select {
             padding: 6px 12px;
             border: 2px solid var(--primary-color);
@@ -122,14 +121,9 @@
             font-weight: 700;
             cursor: pointer;
             outline: none;
-            transition: var(--transition);
-        }
-        .lang-select:hover {
-            background: var(--primary-color);
-            color: var(--white);
         }
 
-        /* ----- NAVBAR ----- */
+        /* NAVBAR */
         .navbar {
             background: var(--primary-color);
             display: flex;
@@ -150,12 +144,7 @@
             font-weight: 500;
         }
 
-        .nav-links li a:hover {
-            background: rgba(255,255,255,0.2);
-            border-radius: 4px;
-        }
-
-        /* ----- BANNER SLIDER ----- */
+        /* BANNER SLIDER */
         .slider-section {
             max-width: 1200px;
             margin: 20px auto;
@@ -214,10 +203,7 @@
             font-weight: 700;
             border-radius: 25px;
             display: inline-block;
-            transition: var(--transition);
         }
-
-        .slide-btn:hover { background: #e66000; }
 
         .slide-img-right {
             position: relative;
@@ -226,40 +212,15 @@
             height: 250px;
             object-fit: cover;
             border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
-        /* ----- CATEGORIES ----- */
-        .section-title {
-            text-align: center;
-            font-size: 24px;
-            margin: 30px 0 15px;
-            font-weight: 700;
-        }
+        /* CATEGORIES */
+        .section-title { text-align: center; font-size: 24px; margin: 30px 0 15px; font-weight: 700; }
+        .categories { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; padding: 0 5%; }
+        .category-chip { padding: 8px 22px; background: var(--white); border-radius: 30px; cursor: pointer; font-weight: 500; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .category-chip.active, .category-chip:hover { background: var(--primary-color); color: var(--white); }
 
-        .categories {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            padding: 0 5%;
-        }
-
-        .category-chip {
-            padding: 8px 22px;
-            background: var(--white);
-            border-radius: 30px;
-            cursor: pointer;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            font-weight: 500;
-        }
-
-        .category-chip.active, .category-chip:hover {
-            background: var(--primary-color);
-            color: var(--white);
-        }
-
-        /* ----- PRODUCT GRID ----- */
+        /* PRODUCTS */
         .products-container {
             max-width: 1300px;
             margin: 30px auto;
@@ -274,264 +235,57 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: var(--shadow);
-            transition: var(--transition);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-        }
-
-        .product-img-box {
-            height: 200px;
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            cursor: pointer;
-        }
-
-        .product-img-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .product-card:hover .product-img-box img {
-            transform: scale(1.05);
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: var(--accent-color);
-            color: var(--white);
-            font-size: 12px;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-weight: bold;
-            z-index: 2;
-        }
-
+        .product-img-box { height: 200px; width: 100%; overflow: hidden; position: relative; cursor: pointer; }
+        .product-img-box img { width: 100%; height: 100%; object-fit: cover; }
+        .product-badge { position: absolute; top: 10px; left: 10px; background: var(--accent-color); color: var(--white); font-size: 12px; padding: 3px 8px; border-radius: 4px; font-weight: bold; }
         .product-info { padding: 15px; cursor: pointer; }
-        .product-title { font-size: 16px; font-weight: 600; margin-bottom: 5px; color: var(--text-color); }
+        .product-title { font-size: 16px; font-weight: 600; margin-bottom: 5px; }
         .product-price { font-size: 18px; color: var(--primary-color); font-weight: 700; }
         .old-price { font-size: 13px; color: #888; text-decoration: line-through; margin-left: 5px; }
 
-        .card-buttons {
-            display: flex;
-            gap: 8px;
-            padding: 10px 15px 15px;
-        }
+        .card-buttons { display: flex; gap: 8px; padding: 10px 15px 15px; }
+        .btn-cart, .btn-buy { flex: 1; padding: 8px; font-weight: 600; border-radius: 6px; cursor: pointer; }
+        .btn-cart { border: 1px solid var(--primary-color); background: var(--white); color: var(--primary-color); }
+        .btn-buy { border: none; background: var(--primary-color); color: var(--white); }
 
-        .btn-cart {
-            flex: 1;
-            padding: 8px;
-            border: 1px solid var(--primary-color);
-            background: var(--white);
-            color: var(--primary-color);
-            font-weight: 600;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-
-        .btn-buy {
-            flex: 1;
-            padding: 8px;
-            border: none;
-            background: var(--primary-color);
-            color: var(--white);
-            font-weight: 600;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-
-        .btn-cart:hover { background: #e0f2f1; }
-        .btn-buy:hover { background: var(--primary-dark); }
-
-        /* ----- PRODUCT DETAILS PAGE VIEW ----- */
-        #productDetailsPage {
-            display: none;
-            max-width: 1200px;
-            margin: 30px auto;
-            background: var(--white);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-        }
-
-        .back-btn {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        .details-wrapper {
-            display: flex;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-
-        .gallery-container {
-            flex: 1;
-            min-width: 320px;
-        }
-
-        .main-details-img {
-            width: 100%;
-            height: 380px;
-            object-fit: cover;
-            border-radius: 10px;
-            border: 1px solid #ddd;
-        }
-
-        .thumbnails {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .thumb-img {
-            width: 70px;
-            height: 70px;
-            object-fit: cover;
-            border-radius: 6px;
-            cursor: pointer;
-            border: 2px solid transparent;
-        }
-
-        .thumb-img.active {
-            border-color: var(--primary-color);
-        }
-
-        .details-info {
-            flex: 1.2;
-            min-width: 320px;
-        }
-
+        /* PRODUCT DETAILS */
+        #productDetailsPage { display: none; max-width: 1200px; margin: 30px auto; background: var(--white); padding: 30px; border-radius: 12px; box-shadow: var(--shadow); }
+        .back-btn { display: inline-block; margin-bottom: 20px; color: var(--primary-color); font-weight: 600; cursor: pointer; }
+        .details-wrapper { display: flex; gap: 40px; flex-wrap: wrap; }
+        .gallery-container { flex: 1; min-width: 320px; }
+        .main-details-img { width: 100%; height: 380px; object-fit: cover; border-radius: 10px; border: 1px solid #ddd; }
+        .details-info { flex: 1.2; min-width: 320px; }
         .details-info h1 { font-size: 28px; margin-bottom: 10px; }
         .details-price { font-size: 26px; color: var(--primary-color); font-weight: 700; margin: 15px 0; }
         .details-desc { line-height: 1.8; color: #555; margin-bottom: 25px; }
+        .details-actions { display: flex; gap: 15px; }
+        .details-actions button { padding: 12px 30px; font-size: 16px; font-weight: 700; border-radius: 8px; cursor: pointer; }
 
-        .details-actions {
-            display: flex;
-            gap: 15px;
-        }
+        /* FAB & MODALS */
+        .fab-add { position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px; background: var(--accent-color); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 6px 20px rgba(0,0,0,0.3); cursor: pointer; z-index: 1001; }
 
-        .details-actions button {
-            padding: 12px 30px;
-            font-size: 16px;
-            font-weight: 700;
-            border-radius: 8px;
-            cursor: pointer;
-        }
+        .modal-overlay { position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.6); display: none; align-items: center; justify-content: center; z-index: 2000; overflow-y: auto; padding: 20px; }
+        .modal-card { background: var(--white); width: 100%; max-width: 500px; padding: 25px; border-radius: 12px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .modal-card h3 { margin-bottom: 15px; color: var(--primary-color); }
+        .modal-card input, .modal-card textarea, .modal-card select { width: 100%; padding: 10px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 6px; outline: none; font-size: 14px; }
+        .modal-card button { width: 100%; padding: 12px; background: var(--primary-color); color: var(--white); border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; }
+        .close-modal { position: absolute; top: 15px; right: 15px; font-size: 20px; cursor: pointer; color: #777; }
 
-        /* ----- FLOATING ADD BUTTON & MODAL ----- */
-        .fab-add {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            width: 60px;
-            height: 60px;
-            background: var(--accent-color);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-            cursor: pointer;
-            z-index: 1001;
-            transition: var(--transition);
-        }
-        .fab-add:hover {
-            transform: scale(1.1) rotate(90deg);
-        }
+        /* CHECKOUT STYLES */
+        .payment-options { display: flex; gap: 10px; margin-bottom: 15px; }
+        .pay-option { flex: 1; padding: 10px; border: 2px solid #ccc; border-radius: 8px; text-align: center; cursor: pointer; font-weight: 600; font-size: 13px; }
+        .pay-option.selected { border-color: var(--primary-color); background: #e0f2f1; color: var(--primary-color); }
+        .card-details { display: none; background: #f9f9f9; padding: 12px; border-radius: 6px; margin-bottom: 12px; }
+        .error-msg { color: #d32f2f; background: #ffebee; padding: 10px; border-radius: 6px; font-size: 13px; margin-bottom: 12px; display: none; border: 1px solid #ffcdd2; }
 
-        .modal-overlay {
-            position: fixed;
-            top:0; left:0; width:100%; height:100%;
-            background: rgba(0,0,0,0.6);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 2000;
-        }
-
-        .modal-card {
-            background: var(--white);
-            width: 90%;
-            max-width: 500px;
-            padding: 25px;
-            border-radius: 12px;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .modal-card h3 {
-            margin-bottom: 15px;
-            color: var(--primary-color);
-        }
-
-        .modal-card input, .modal-card textarea, .modal-card select {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 12px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            outline: none;
-            font-size: 14px;
-        }
-
-        .modal-card button {
-            width: 100%;
-            padding: 12px;
-            background: var(--primary-color);
-            color: var(--white);
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 20px;
-            cursor: pointer;
-            color: #777;
-        }
-
-        /* FOOTER */
-        footer {
-            background: #1e293b;
-            color: var(--white);
-            padding: 40px 5% 20px;
-            margin-top: 50px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 14px;
-        }
+        footer { background: #1e293b; color: var(--white); padding: 40px 5% 20px; margin-top: 50px; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 30px; }
+        .footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 14px; }
 
         @media (max-width: 768px) {
             .slide-img-right { display: none; }
@@ -561,7 +315,7 @@
                 </select>
                 <div class="icon-btn"><i class="fa-regular fa-user"></i></div>
                 <div class="icon-btn"><i class="fa-regular fa-heart"></i><span class="badge">0</span></div>
-                <div class="icon-btn" onclick="alert(currentLang === 'en' ? 'Cart view clicked!' : 'আপনার কার্ট দেখতে পাচ্ছেন!')">
+                <div class="icon-btn" onclick="openCartCheckout()">
                     <i class="fa-solid fa-cart-shopping"></i>
                     <span class="badge" id="cartCount">0</span>
                 </div>
@@ -587,13 +341,12 @@
                     <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=80');">
                         <div class="slide-overlay"></div>
                         <div class="slide-content">
-                            <h2 class="slide-title-1">Grand Festive Sale!</h2>
-                            <p class="slide-desc-1">Up to 40% off on all categories. Grab it now!</p>
-                            <a href="#products" class="slide-btn slide-btn-1">Shop Now</a>
+                            <h2>Grand Festive Sale!</h2>
+                            <p>Up to 40% off on all categories. Grab it now!</p>
+                            <a href="#products" class="slide-btn">Shop Now</a>
                         </div>
                         <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=80" class="slide-img-right" alt="Smartwatch">
                     </div>
-
                     <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1200&q=80');">
                         <div class="slide-overlay"></div>
                         <div class="slide-content">
@@ -603,7 +356,6 @@
                         </div>
                         <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=500&q=80" class="slide-img-right" alt="Headphone">
                     </div>
-
                     <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=80');">
                         <div class="slide-overlay"></div>
                         <div class="slide-content">
@@ -613,7 +365,6 @@
                         </div>
                         <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80" class="slide-img-right" alt="Shoes">
                     </div>
-
                     <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1200&q=80');">
                         <div class="slide-overlay"></div>
                         <div class="slide-content">
@@ -623,7 +374,6 @@
                         </div>
                         <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=500&q=80" class="slide-img-right" alt="Camera">
                     </div>
-
                     <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=1200&q=80');">
                         <div class="slide-overlay"></div>
                         <div class="slide-content">
@@ -657,7 +407,6 @@
         <div class="details-wrapper">
             <div class="gallery-container">
                 <img id="mainImg" class="main-details-img" src="" alt="Product Main Image">
-                <div class="thumbnails" id="thumbnailList"></div>
             </div>
             <div class="details-info">
                 <h1 id="detTitle"></h1>
@@ -665,7 +414,6 @@
                 <div class="details-price" id="detPrice"></div>
                 <p class="details-desc" id="detDesc"></p>
                 
-                <!-- লিংক শেয়ার সুবিধা -->
                 <div style="margin-bottom: 20px;">
                     <button onclick="copyProductLink()" style="padding: 6px 12px; background: #eee; border: 1px solid #ccc; border-radius: 4px; cursor: pointer;">
                         <i class="fa-solid fa-share-nodes"></i> Copy Product Link
@@ -674,7 +422,7 @@
 
                 <div class="details-actions">
                     <button class="btn-cart" onclick="addToCart()"><i class="fa-solid fa-cart-plus"></i> <span id="txt-addcart">Add to Cart</span></button>
-                    <button class="btn-buy" onclick="alert(currentLang === 'en' ? 'Processing your order!' : 'আপনার অর্ডারটি প্রক্রিয়াকরণ করা হচ্ছে!')"><i class="fa-solid fa-bolt"></i> <span id="txt-buynow">Buy Now</span></button>
+                    <button class="btn-buy" onclick="triggerCheckout(activeProductID)"><i class="fa-solid fa-bolt"></i> <span id="txt-buynow">Buy Now</span></button>
                 </div>
             </div>
         </div>
@@ -690,16 +438,56 @@
         <div class="modal-card">
             <span class="close-modal" onclick="closeUploadModal()">&times;</span>
             <h3 id="modalTitle">Upload New Product (Admin)</h3>
+            <label style="font-weight: bold; display: block; margin-bottom: 5px;">প্রোডাক্টের ছবি:</label>
             <input type="file" id="prodImageInput" accept="image/*" required>
-            <input type="text" id="prodTitle" placeholder="Product Title" required>
+            <input type="text" id="prodTitle" placeholder="Product Title (প্রোডাক্টের নাম)" required>
+            <label style="font-weight: bold; display: block; margin-bottom: 5px;">ক্যাটাগরি সিলেক্ট করুন:</label>
             <select id="prodCategory">
-                <option value="electronics">Electronics</option>
-                <option value="fashion">Fashion</option>
-                <option value="shoes">Shoes</option>
+                <option value="electronics">Electronics (ইলেকট্রনিক্স)</option>
+                <option value="fashion">Fashion (ফ্যাশন)</option>
+                <option value="shoes">Shoes (জুতো)</option>
             </select>
-            <input type="number" id="prodPrice" placeholder="Price (BDT)" required>
-            <textarea id="prodDesc" rows="4" placeholder="Product Description..." required></textarea>
+            <input type="number" id="prodPrice" placeholder="Price (মূল্য - BDT)" required>
+            <textarea id="prodDesc" rows="4" placeholder="Product Description (প্রোডাক্টের বিবরণ...)" required></textarea>
             <button onclick="submitNewProduct()">Upload Product</button>
+        </div>
+    </div>
+
+    <!-- চেকআউট পপ-আপ (Checkout & Payment Modal) -->
+    <div class="modal-overlay" id="checkoutModal">
+        <div class="modal-card">
+            <span class="close-modal" onclick="closeCheckoutModal()">&times;</span>
+            <h3 style="border-bottom: 2px solid var(--primary-color); padding-bottom: 8px;">Order Checkout</h3>
+            
+            <div id="errorAlert" class="error-msg"></div>
+
+            <p style="font-weight: 600; margin-bottom: 10px;" id="orderItemTitle">Item: Processing...</p>
+
+            <input type="text" id="custName" placeholder="Full Name (আপনার নাম)" required>
+            <input type="tel" id="custPhone" placeholder="Phone Number (১১ ডিজিট মোবাইল নম্বর)" required>
+            <input type="email" id="custEmail" placeholder="Email Address (ইমেইল)" required>
+            <textarea id="custAddress" rows="2" placeholder="Full Delivery Address (সম্পূর্ণ ঠিকানা)" required></textarea>
+
+            <label style="font-weight: bold; display: block; margin-bottom: 8px;">Select Payment Method:</label>
+            <div class="payment-options">
+                <div class="pay-option selected" id="opt-cod" onclick="selectPayment('cod')">
+                    <i class="fa-solid fa-hand-holding-dollar"></i><br>Cash on Delivery
+                </div>
+                <div class="pay-option" id="opt-card" onclick="selectPayment('card')">
+                    <i class="fa-regular fa-credit-card"></i><br>Credit/Debit Card
+                </div>
+            </div>
+
+            <!-- ক্রেডিট কার্ড ফর্ম -->
+            <div class="card-details" id="cardForm">
+                <input type="text" id="cardNumber" placeholder="Card Number (১৬ ডিজিট কার্ড নম্বর)" maxlength="16">
+                <div style="display: flex; gap: 10px;">
+                    <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5">
+                    <input type="password" id="cardCVC" placeholder="CVC" maxlength="3">
+                </div>
+            </div>
+
+            <button onclick="processOrder()"><i class="fa-solid fa-check-circle"></i> Confirm Order</button>
         </div>
     </div>
 
@@ -707,21 +495,21 @@
     <footer>
         <div class="footer-content">
             <div>
-                <h3 id="footer-shop-name">Asraf Shop</h3>
-                <p id="footer-desc" style="margin-top: 10px; color: #ccc;">Your trusted online shopping partner.</p>
+                <h3>Asraf Shop</h3>
+                <p style="margin-top: 10px; color: #ccc;">Your trusted online shopping partner.</p>
             </div>
             <div>
-                <h4 id="footer-quick">Quick Links</h4>
-                <p id="footer-about">About Us</p>
-                <p id="footer-return">Return Policy</p>
+                <h4>Quick Links</h4>
+                <p>About Us</p>
+                <p>Return Policy</p>
             </div>
             <div>
-                <h4 id="footer-contact">Contact</h4>
+                <h4>Contact</h4>
                 <p>Email: support@asrafshop.com</p>
                 <p>Phone: +880 1700-000000</p>
             </div>
         </div>
-        <div class="footer-bottom" id="footer-copy">
+        <div class="footer-bottom">
             &copy; 2026 Asraf Shop. All rights reserved.
         </div>
     </footer>
@@ -731,7 +519,6 @@
         let currentLang = localStorage.getItem('site_lang') || 'en';
         document.getElementById('langSwitch').value = currentLang;
 
-        // স্লাইডার লজিক
         let currentSlide = 0;
         const totalSlides = 5;
         const slideTrack = document.getElementById('slideTrack');
@@ -742,13 +529,12 @@
         }
         setInterval(nextSlide, 4500);
 
-        // ডিফল্ট ডামি প্রোডাক্টস
         const defaultProducts = [
             {
                 id: 1,
                 category: "shoes",
-                en: { name: "Premium Running Sports Shoes", category: "Shoes", desc: "These running sports shoes are extremely comfortable and durable. Ideal for running or casual wear." },
-                bn: { name: "প্রিমিয়াম রানিং স্পোর্টস শু", category: "জুতো", desc: "এই রানিং স্পোর্টস শু টি অত্যন্ত আরামদায়ক এবং টেকসই। রানিং বা ক্যাজুয়াল ব্যবহারের জন্য আদর্শ।" },
+                en: { name: "Premium Running Sports Shoes", category: "Shoes", desc: "These running sports shoes are extremely comfortable and durable." },
+                bn: { name: "প্রিমিয়াম রানিং স্পোর্টস শু", category: "জুতো", desc: "এই রানিং স্পোর্টস শু টি অত্যন্ত আরামদায়ক এবং টেকসই।" },
                 price: 2800,
                 oldPrice: 3500,
                 images: ["https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80"]
@@ -756,8 +542,8 @@
             {
                 id: 2,
                 category: "electronics",
-                en: { name: "Wireless Over-Ear Headphones", category: "Electronics", desc: "High-bass noise-canceling Bluetooth headphones. Provides up to 20 hours of backup." },
-                bn: { name: "ওয়ারলেস ওভার-ইয়ার হেডফোন", category: "ইলেকট্রনিক্স", desc: "হাই-বেস নয়েজ ক্যানসেলেশন ব্লুটুথ হেডফোন। একবার ফুল চার্জে ২০ ঘণ্টা পর্যন্ত ব্যাকআপ দেয়।" },
+                en: { name: "Wireless Over-Ear Headphones", category: "Electronics", desc: "High-bass noise-canceling Bluetooth headphones." },
+                bn: { name: "ওয়ারলেস ওভার-ইয়ার হেডফোন", category: "ইলেকট্রনিক্স", desc: "হাই-বেস নয়েজ ক্যানসেলেশন ব্লুটুথ হেডফোন।" },
                 price: 1850,
                 oldPrice: 2400,
                 images: ["https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80"]
@@ -765,35 +551,31 @@
             {
                 id: 3,
                 category: "electronics",
-                en: { name: "Smart Fitness Watch Band", category: "Electronics", desc: "Waterproof smartwatch with heart rate monitor, sleep tracking, and sports modes." },
-                bn: { name: "স্মার্ট ফিটনেস ওয়াচ ব্যান্ড", category: "ইলেকট্রনিক্স", desc: "হার্ট রেট মনিটর, স্লিপ ট্র্যাকিং এবং স্পোর্টস মোড সহ ওয়াটারপ্রুফ স্মার্ট ওয়াচ।" },
+                en: { name: "Smart Fitness Watch Band", category: "Electronics", desc: "Waterproof smartwatch with heart rate monitor." },
+                bn: { name: "স্মার্ট ফিটনেস ওয়াচ ব্যান্ড", category: "ইলেকট্রনিক্স", desc: "হার্ট রেট মনিটর সহ ওয়াটারপ্রুফ স্মার্ট ওয়াচ।" },
                 price: 2200,
                 oldPrice: 2900,
                 images: ["https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80"]
             }
         ];
 
-        // LocalStorage থেকে আপলোড হওয়া নতুন প্রোডাক্ট আনা
         let storedProducts = JSON.parse(localStorage.getItem('custom_products')) || [];
         let productsData = [...defaultProducts, ...storedProducts];
 
-        // UI টেক্সট অনুবাদ
         const uiText = {
             en: {
                 searchPlaceholder: "Search products...",
                 navHome: "Home", navShop: "Shop", navElec: "Electronics", navFash: "Fashion", navShoes: "Shoes",
                 popCat: "Popular Categories", allProd: "All Products", catElec: "Electronics", catFash: "Fashion", catShoes: "Shoes",
                 ourProd: "Our Products", badgeOffer: "Offer", btnCart: "Cart", btnBuy: "Order Now",
-                backHome: "Back to Home", addCart: "Add to Cart", buyNow: "Buy Now",
-                footerDesc: "Your trusted online shopping partner.", quickLinks: "Quick Links", aboutUs: "About Us", returnPolicy: "Return Policy", contact: "Contact", rights: "&copy; 2026 Asraf Shop. All rights reserved."
+                backHome: "Back to Home", addCart: "Add to Cart", buyNow: "Buy Now"
             },
             bn: {
                 searchPlaceholder: "প্রোডাক্টের নাম দিয়ে খুঁজুন...",
                 navHome: "হোম", navShop: "শপ", navElec: "ইলেকট্রনিক্স", navFash: "ফ্যাশন", navShoes: "জুতো",
                 popCat: "পপুলার ক্যাটাগরি", allProd: "সব প্রোডাক্ট", catElec: "ইলেকট্রনিক্স", catFash: "ফ্যাশন", catShoes: "জুতো",
                 ourProd: "আমাদের প্রোডাক্টসমূহ", badgeOffer: "অফার", btnCart: "কার্ট", btnBuy: "অর্ডার করুন",
-                backHome: "হোমপেজে ফিরে যান", addCart: "কার্টে যোগ করুন", buyNow: "অর্ডার করুন (Buy Now)",
-                footerDesc: "আপনার বিশ্বস্ত অনলাইন শপিং পার্টনার।", quickLinks: "কুইক লিংক", aboutUs: "আমাদের সম্পর্কে", returnPolicy: "রিটার্ন পলিসি", contact: "যোগাযোগ", rights: "&copy; ২০২৬ আশরাফ শপ। সর্বস্বত্ব সংরক্ষিত।"
+                backHome: "হোমপেজে ফিরে যান", addCart: "কার্টে যোগ করুন", buyNow: "অর্ডার করুন (Buy Now)"
             }
         };
 
@@ -821,12 +603,6 @@
             document.getElementById('txt-back').innerText = t.backHome;
             document.getElementById('txt-addcart').innerText = t.addCart;
             document.getElementById('txt-buynow').innerText = t.buyNow;
-            document.getElementById('footer-desc').innerText = t.footerDesc;
-            document.getElementById('footer-quick').innerText = t.quickLinks;
-            document.getElementById('footer-about').innerText = t.aboutUs;
-            document.getElementById('footer-return').innerText = t.returnPolicy;
-            document.getElementById('footer-contact').innerText = t.contact;
-            document.getElementById('footer-copy').innerHTML = t.rights;
         }
 
         const productGrid = document.getElementById('productGrid');
@@ -836,7 +612,7 @@
             const t = uiText[currentLang];
 
             if (items.length === 0) {
-                productGrid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; font-size: 18px; color: #777;">${currentLang === 'en' ? 'No products found!' : 'কোনো পণ্য পাওয়া যায়নি!'}</p>`;
+                productGrid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; font-size: 18px; color: #777;">No products found!</p>`;
                 return;
             }
 
@@ -858,14 +634,13 @@
                     </div>
                     <div class="card-buttons">
                         <button class="btn-cart" onclick="addToCart()"><i class="fa-solid fa-cart-shopping"></i> ${t.btnCart}</button>
-                        <button class="btn-buy" onclick="openProductPage(${product.id})">${t.btnBuy}</button>
+                        <button class="btn-buy" onclick="triggerCheckout(${product.id})">${t.btnBuy}</button>
                     </div>
                 `;
                 productGrid.appendChild(card);
             });
         }
 
-        // ক্যাটাগরি ও সার্চ ইঞ্জিনের বাগ দূর করা
         function filterCategory(cat) {
             document.querySelectorAll('.category-chip').forEach(btn => btn.classList.remove('active'));
             const activeBtn = document.getElementById(`btn-${cat}`);
@@ -899,7 +674,6 @@
             alert(currentLang === 'en' ? 'Product added to cart successfully!' : 'পণ্যটি সফলভাবে কার্টে যোগ করা হয়েছে!');
         }
 
-        // প্রোডাক্ট বিস্তারিত দেখা ও লিংক হ্যান্ডলিং
         let activeProductID = null;
         function openProductPage(id, updateHistory = true) {
             const product = productsData.find(p => p.id === id);
@@ -908,35 +682,16 @@
             activeProductID = id;
             const prodInfo = product[currentLang] || product['en'];
             document.getElementById('detTitle').innerText = prodInfo.name;
-            document.getElementById('detCategory').innerText = `${currentLang === 'en' ? 'Category: ' : 'ক্যাটাগরি: '}${product.category.toUpperCase()}`;
-            document.getElementById('detPrice').innerText = `${currentLang === 'en' ? 'Price: ৳' : 'মূল্য: ৳'}${product.price}`;
+            document.getElementById('detCategory').innerText = `Category: ${product.category.toUpperCase()}`;
+            document.getElementById('detPrice').innerText = `Price: ৳${product.price}`;
             document.getElementById('detDesc').innerText = prodInfo.desc;
-            
-            const mainImg = document.getElementById('mainImg');
-            mainImg.src = product.images[0];
-
-            const thumbList = document.getElementById('thumbnailList');
-            thumbList.innerHTML = '';
-            product.images.forEach((imgUrl, idx) => {
-                const thumb = document.createElement('img');
-                thumb.src = imgUrl;
-                thumb.className = `thumb-img ${idx === 0 ? 'active' : ''}`;
-                thumb.onclick = function() {
-                    mainImg.src = imgUrl;
-                    document.querySelectorAll('.thumb-img').forEach(t => t.classList.remove('active'));
-                    thumb.classList.add('active');
-                };
-                thumbList.appendChild(thumb);
-            });
+            document.getElementById('mainImg').src = product.images[0];
 
             document.getElementById('mainHomeView').style.display = 'none';
             document.getElementById('productDetailsPage').style.display = 'block';
             window.scrollTo(0, 0);
 
-            // URL আপডেট (যাতে এই লিংক কপি করে দিলে অন্য কেউ দেখতে পারে)
-            if(updateHistory) {
-                history.pushState({ productId: id }, '', `?product=${id}`);
-            }
+            if(updateHistory) history.pushState({ productId: id }, '', `?product=${id}`);
         }
 
         function showMainHome() {
@@ -952,15 +707,116 @@
             alert("Product Link Copied to Clipboard!");
         }
 
-        // ==================== অ্যাডমিন প্রোডাক্ট আপলোড সিস্টেম ==================== //
-        const ADMIN_PASS = "1234"; // ডিফল্ট সিকিউরিটি পাসওয়ার্ড
+        /* ==================== চেকআউট ও পেমেন্ট সিস্টেম ==================== */
+        let checkoutProduct = null;
+        let selectedPayMethod = 'cod';
+
+        function triggerCheckout(prodId) {
+            checkoutProduct = productsData.find(p => p.id === prodId);
+            if (!checkoutProduct) return;
+
+            const name = (checkoutProduct[currentLang] || checkoutProduct['en']).name;
+            document.getElementById('orderItemTitle').innerText = `Item: ${name} (৳${checkoutProduct.price})`;
+            document.getElementById('checkoutModal').style.display = 'flex';
+            document.getElementById('errorAlert').style.display = 'none';
+        }
+
+        function openCartCheckout() {
+            if(cartCount === 0) {
+                alert("আপনার কার্ট খালি! যেকোনো প্রোডাক্ট কার্টে যোগ করুন।");
+                return;
+            }
+            document.getElementById('orderItemTitle').innerText = `Cart Total Items: ${cartCount}`;
+            document.getElementById('checkoutModal').style.display = 'flex';
+            document.getElementById('errorAlert').style.display = 'none';
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkoutModal').style.display = 'none';
+        }
+
+        function selectPayment(method) {
+            selectedPayMethod = method;
+            document.getElementById('opt-cod').classList.remove('selected');
+            document.getElementById('opt-card').classList.remove('selected');
+
+            if(method === 'cod') {
+                document.getElementById('opt-cod').classList.add('selected');
+                document.getElementById('cardForm').style.display = 'none';
+            } else {
+                document.getElementById('opt-card').classList.add('selected');
+                document.getElementById('cardForm').style.display = 'block';
+            }
+        }
+
+        function processOrder() {
+            const name = document.getElementById('custName').value.trim();
+            const phone = document.getElementById('custPhone').value.trim();
+            const email = document.getElementById('custEmail').value.trim();
+            const address = document.getElementById('custAddress').value.trim();
+            const errorAlert = document.getElementById('errorAlert');
+
+            errorAlert.style.display = 'none';
+
+            // ভ্যালিডেশন চেক
+            if(!name || !phone || !email || !address) {
+                showError("❌ সমস্যা: দয়া করে আপনার নাম, ফোন নম্বর, ইমেইল এবং ঠিকানা সঠিকভাবে পূরণ করুন।");
+                return;
+            }
+
+            // ফোন নম্বর ১১ ডিজিট ফরম্যাট চেক
+            if(phone.length < 11 || isNaN(phone)) {
+                showError("❌ সমস্যা: আপনার ১১ ডিজিটের সঠিক মোবাইল নম্বরটি লিখুন।");
+                return;
+            }
+
+            // কার্ড পেমেন্ট চেক
+            if(selectedPayMethod === 'card') {
+                const cardNum = document.getElementById('cardNumber').value.trim();
+                const cardExpiry = document.getElementById('cardExpiry').value.trim();
+                const cardCVC = document.getElementById('cardCVC').value.trim();
+
+                if(cardNum.length !== 16 || isNaN(cardNum)) {
+                    showError("❌ পেমেন্ট এরর: সঠিক ১৬ ডিজিটের ক্রেডিট/ডেবিট কার্ড নম্বর লিখুন।");
+                    return;
+                }
+                if(!cardExpiry || !cardCVC) {
+                    showError("❌ পেমেন্ট এরর: কার্ডের মেয়াদের তারিখ (MM/YY) ও CVC কোড প্রদান করুন।");
+                    return;
+                }
+            }
+
+            // সফল মেসেজ দেখানো
+            alert(`🎉 অভিনন্দন ${name}!\n\nআপনার অর্ডারটি সফলভাবে জমা হয়েছে।\nপেমেন্ট মেথড: ${selectedPayMethod.toUpperCase()}\nখুব শীঘ্রই আমাদের প্রতিনিধি আপনার সাথে যোগাযোগ করবেন।`);
+            
+            // রিসেট
+            closeCheckoutModal();
+            cartCount = 0;
+            document.getElementById('cartCount').innerText = 0;
+            document.getElementById('custName').value = '';
+            document.getElementById('custPhone').value = '';
+            document.getElementById('custEmail').value = '';
+            document.getElementById('custAddress').value = '';
+            document.getElementById('cardNumber').value = '';
+            document.getElementById('cardExpiry').value = '';
+            document.getElementById('cardCVC').value = '';
+        }
+
+        function showError(msg) {
+            const errorAlert = document.getElementById('errorAlert');
+            errorAlert.innerText = msg;
+            errorAlert.style.display = 'block';
+        }
+
+        /* ==================== অ্যাডমিন প্রোডাক্ট আপলোড ==================== */
+        const ADMIN_PASS = "1234";
 
         function openUploadModal() {
-            const password = prompt("শুধুমাত্র ওয়েবসাইটের মালিক অ্যাডমিন পাসওয়ার্ড দিন:");
+            const password = prompt("অ্যাডমিন পাসওয়ার্ড দিন:");
             if (password === ADMIN_PASS) {
                 document.getElementById('uploadModal').style.display = 'flex';
             } else if (password !== null) {
-                alert("ভুল পাসওয়ার্ড! আপনি প্রোডাক্ট আপলোড করতে পারবেন না।");
+                alert("ভুল পাসওয়ার্ড!");
             }
         }
 
@@ -976,7 +832,7 @@
             const desc = document.getElementById('prodDesc').value.trim();
 
             if (!imgInput.files[0] || !title || !price || !desc) {
-                alert("দয়া করে সবগুলো ঘর পূরণ করুন এবং একটি ছবি নির্বাচন করুন!");
+                alert("দয়া করে সবগুলো তথ্য সঠিকভাবে পূরণ করুন!");
                 return;
             }
 
@@ -992,7 +848,6 @@
                     images: [e.target.result]
                 };
 
-                // নতুন প্রোডাক্ট সেভ করা
                 storedProducts.push(newProduct);
                 localStorage.setItem('custom_products', JSON.stringify(storedProducts));
                 productsData.push(newProduct);
@@ -1000,18 +855,11 @@
                 displayProducts(productsData);
                 closeUploadModal();
                 alert("প্রোডাক্টটি সফলভাবে আপলোড এবং লাইভ করা হয়েছে!");
-
-                // ফর্ম ক্লিয়ার
-                document.getElementById('prodTitle').value = '';
-                document.getElementById('prodPrice').value = '';
-                document.getElementById('prodDesc').value = '';
-                imgInput.value = '';
             };
 
             reader.readAsDataURL(imgInput.files[0]);
         }
 
-        // ইউআরএল থেকে নির্দিষ্ট প্রোডাক্ট সরাসরি ওপেন করার লজিক Check
         window.onload = function() {
             updateUI();
             displayProducts(productsData);
