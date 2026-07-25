@@ -21,7 +21,7 @@
             --text-main: #2c3e50;
             --text-muted: #6c757d;
             --white: #ffffff;
-            --card-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            --card-shadow: 0 4px 15px rgba(0,0,0,0.05);
             --modal-shadow: 0 10px 30px rgba(0,0,0,0.25);
             --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             --border-radius: 12px;
@@ -59,19 +59,19 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 5%;
-            gap: 20px;
+            padding: 12px 5%;
+            gap: 15px;
         }
 
         .logo {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 800;
             color: var(--primary-color);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             cursor: pointer;
-            letter-spacing: -0.5px;
+            white-space: nowrap;
         }
 
         .search-bar {
@@ -82,66 +82,55 @@
 
         .search-bar input {
             width: 100%;
-            padding: 12px 20px;
+            padding: 10px 16px;
             border: 2px solid var(--primary-color);
             border-radius: 30px 0 0 30px;
             outline: none;
-            font-size: 15px;
-            transition: var(--transition);
+            font-size: 14px;
         }
 
         .search-bar button {
-            padding: 12px 25px;
+            padding: 10px 20px;
             background: var(--primary-color);
             color: var(--white);
             border-radius: 0 30px 30px 0;
-            font-size: 16px;
-            transition: var(--transition);
-        }
-
-        .search-bar button:hover {
-            background: var(--primary-dark);
+            font-size: 15px;
         }
 
         .header-icons {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             align-items: center;
         }
 
         .icon-btn {
             position: relative;
-            font-size: 22px;
+            font-size: 20px;
             color: var(--text-main);
             cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .icon-btn:hover {
-            color: var(--primary-color);
         }
 
         .badge {
             position: absolute;
-            top: -8px;
-            right: -10px;
+            top: -6px;
+            right: -8px;
             background: var(--accent-color);
             color: var(--white);
-            font-size: 11px;
-            padding: 2px 6px;
+            font-size: 10px;
+            padding: 2px 5px;
             border-radius: 50%;
             font-weight: 700;
         }
 
         .lang-select {
-            padding: 8px 15px;
+            padding: 6px 10px;
             border: 2px solid var(--primary-color);
             border-radius: 20px;
             background: var(--white);
             color: var(--primary-color);
             font-weight: 700;
             cursor: pointer;
-            outline: none;
+            font-size: 13px;
         }
 
         .navbar {
@@ -149,39 +138,35 @@
             display: flex;
             justify-content: center;
             padding: 0 5%;
+            overflow-x: auto;
+            white-space: nowrap;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 20px;
-            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .nav-links li a {
             display: block;
-            padding: 14px 15px;
+            padding: 12px 14px;
             color: var(--white);
             font-weight: 600;
-            font-size: 15px;
-            transition: var(--transition);
-        }
-
-        .nav-links li a:hover {
-            background: rgba(255, 255, 255, 0.15);
+            font-size: 14px;
         }
 
         /* ==================== HERO BANNER SLIDER ==================== */
         .slider-section {
             max-width: 1300px;
-            margin: 25px auto;
-            padding: 0 20px;
+            margin: 15px auto;
+            padding: 0 15px;
             width: 100%;
         }
 
         .slider-container {
             width: 100%;
-            height: 380px;
+            height: 320px;
             position: relative;
             overflow: hidden;
             border-radius: var(--border-radius);
@@ -201,7 +186,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 40px 60px;
+            padding: 30px 40px;
             color: var(--white);
             position: relative;
             background-size: cover;
@@ -211,82 +196,82 @@
         .slide-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0) 100%);
+            background: linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 100%);
             z-index: 1;
         }
 
         .slide-content {
             position: relative;
             z-index: 2;
-            max-width: 550px;
+            max-width: 500px;
         }
 
-        .slide-content h2 { font-size: 40px; margin-bottom: 12px; font-weight: 700; line-height: 1.2; }
-        .slide-content p { font-size: 18px; margin-bottom: 25px; opacity: 0.9; }
+        .slide-content h2 { font-size: 32px; margin-bottom: 10px; font-weight: 700; line-height: 1.2; }
+        .slide-content p { font-size: 15px; margin-bottom: 20px; opacity: 0.9; }
 
         .slide-btn {
-            padding: 12px 30px;
+            padding: 10px 24px;
             background: var(--accent-color);
             color: var(--white);
             font-weight: 700;
             border-radius: 30px;
             display: inline-block;
-            transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(255, 111, 0, 0.4);
+            font-size: 14px;
         }
-
-        .slide-btn:hover { background: var(--accent-hover); transform: translateY(-2px); }
 
         .slide-img-right {
             position: relative;
             z-index: 2;
-            width: 320px;
-            height: 250px;
+            width: 250px;
+            height: 200px;
             object-fit: cover;
             border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
         }
 
         /* ==================== CATEGORIES & SECTION HEADINGS ==================== */
         .section-title {
             text-align: center;
-            font-size: 28px;
-            margin: 40px 0 20px;
+            font-size: 22px;
+            margin: 25px 0 15px;
             font-weight: 700;
             color: var(--text-main);
-            position: relative;
         }
 
         .section-title::after {
             content: '';
             display: block;
-            width: 60px;
-            height: 4px;
+            width: 50px;
+            height: 3px;
             background: var(--primary-color);
-            margin: 8px auto 0;
+            margin: 6px auto 0;
             border-radius: 2px;
         }
 
         .categories {
             display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            padding: 0 5%;
+            justify-content: flex-start;
+            gap: 10px;
+            padding: 5px 15px 10px;
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
         }
 
+        .categories::-webkit-scrollbar { display: none; }
+
         .category-chip {
-            padding: 10px 28px;
+            padding: 8px 20px;
             background: var(--white);
             border-radius: 30px;
             cursor: pointer;
             font-weight: 600;
             box-shadow: var(--card-shadow);
-            transition: var(--transition);
             border: 1px solid #eee;
+            font-size: 13px;
+            flex-shrink: 0;
         }
 
-        .category-chip.active, .category-chip:hover {
+        .category-chip.active {
             background: var(--primary-color);
             color: var(--white);
             border-color: var(--primary-color);
@@ -295,11 +280,11 @@
         /* ==================== PRODUCTS GRID ==================== */
         .products-container {
             max-width: 1300px;
-            margin: 30px auto;
-            padding: 0 20px;
+            margin: 20px auto;
+            padding: 0 15px;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 15px;
             width: 100%;
         }
 
@@ -311,21 +296,13 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: var(--transition);
             border: 1px solid #f0f0f0;
         }
 
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
         .product-img-box {
-            height: 220px;
+            height: 180px;
             width: 100%;
-            overflow: hidden;
             position: relative;
-            cursor: pointer;
             background: #fafafa;
         }
 
@@ -333,418 +310,185 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .product-card:hover .product-img-box img {
-            transform: scale(1.05);
         }
 
         .product-badge {
             position: absolute;
-            top: 12px;
-            left: 12px;
+            top: 8px; left: 8px;
             background: var(--accent-color);
             color: var(--white);
-            font-size: 12px;
-            padding: 4px 10px;
-            border-radius: 6px;
+            font-size: 10px;
+            padding: 3px 8px;
+            border-radius: 4px;
             font-weight: 700;
         }
 
-        .product-info {
-            padding: 18px;
-            cursor: pointer;
-        }
+        .product-info { padding: 12px; }
 
         .product-title {
-            font-size: 17px;
+            font-size: 14px;
             font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--text-main);
+            margin-bottom: 6px;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
+            line-height: 1.3;
         }
 
-        .product-price {
-            font-size: 20px;
-            color: var(--primary-color);
-            font-weight: 700;
-        }
-
-        .old-price {
-            font-size: 14px;
-            color: var(--text-muted);
-            text-decoration: line-through;
-            margin-left: 8px;
-            font-weight: 400;
-        }
+        .product-price { font-size: 16px; color: var(--primary-color); font-weight: 700; }
+        .old-price { font-size: 12px; color: var(--text-muted); text-decoration: line-through; margin-left: 5px; }
 
         .card-buttons {
             display: flex;
-            gap: 10px;
-            padding: 0 18px 18px;
+            gap: 8px;
+            padding: 0 12px 12px;
         }
 
         .btn-cart, .btn-buy {
             flex: 1;
-            padding: 10px;
+            padding: 8px 4px;
             font-weight: 600;
-            border-radius: 8px;
-            transition: var(--transition);
-            font-size: 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            text-align: center;
         }
 
-        .btn-cart {
-            border: 2px solid var(--primary-color);
-            background: var(--white);
-            color: var(--primary-color);
-        }
+        .btn-cart { border: 1.5px solid var(--primary-color); background: var(--white); color: var(--primary-color); }
+        .btn-buy { background: var(--primary-color); color: var(--white); }
 
-        .btn-cart:hover {
-            background: var(--primary-light);
-        }
-
-        .btn-buy {
-            border: none;
-            background: var(--primary-color);
-            color: var(--white);
-        }
-
-        .btn-buy:hover {
-            background: var(--primary-dark);
-        }
-
-        /* ==================== PAGE VIEWS (SINGLE PAGE APPLICATION) ==================== */
+        /* ==================== PAGE VIEWS ==================== */
         .page-view {
             display: none;
             max-width: 1200px;
-            margin: 30px auto;
+            margin: 20px auto;
             background: var(--white);
-            padding: 40px;
+            padding: 20px;
             border-radius: var(--border-radius);
             box-shadow: var(--card-shadow);
-            width: 90%;
+            width: 95%;
             min-height: 400px;
         }
 
-        .page-view.active-page {
-            display: block;
-        }
+        .page-view.active-page { display: block; }
 
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 25px;
-            color: var(--primary-color);
-            font-weight: 700;
-            cursor: pointer;
-            font-size: 16px;
-            transition: var(--transition);
-        }
-
-        .back-btn:hover {
-            color: var(--primary-dark);
-            transform: translateX(-3px);
-        }
-
-        /* Product Details Styles */
-        .details-wrapper {
-            display: flex;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-
-        .gallery-container {
-            flex: 1;
-            min-width: 320px;
-        }
-
-        .main-details-img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: var(--border-radius);
-            border: 1px solid #eee;
-        }
-
-        .thumbnails-box {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-            flex-wrap: wrap;
-        }
-
-        .thumb-img {
-            width: 70px;
-            height: 70px;
-            object-fit: cover;
-            border-radius: 8px;
-            cursor: pointer;
-            border: 2px solid #ddd;
-            transition: var(--transition);
-        }
-
-        .thumb-img.active {
-            border-color: var(--primary-color);
-        }
-
-        .details-info {
-            flex: 1.2;
-            min-width: 320px;
-        }
-
-        .details-info h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
-            color: var(--text-main);
-        }
-
-        .details-price {
-            font-size: 30px;
-            color: var(--primary-color);
-            font-weight: 700;
-            margin: 15px 0;
-        }
-
-        .details-desc {
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 25px;
-            font-size: 16px;
-        }
-
-        .details-actions {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .details-actions button {
-            padding: 14px 35px;
-            font-size: 16px;
-            font-weight: 700;
-            border-radius: 8px;
-        }
-
-        /* Generic Content Pages */
-        .content-page h1 {
-            font-size: 32px;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            border-bottom: 3px solid var(--primary-light);
-            padding-bottom: 10px;
-        }
-
-        .content-page p {
-            line-height: 1.8;
-            color: #444;
-            font-size: 16px;
-            margin-bottom: 15px;
-        }
-
-        .content-page ul {
-            margin-left: 20px;
-            margin-bottom: 20px;
-            line-height: 1.8;
-        }
+        .details-wrapper { display: flex; gap: 20px; flex-wrap: wrap; }
+        .gallery-container { flex: 1; min-width: 280px; }
+        .main-details-img { width: 100%; height: 300px; object-fit: cover; border-radius: var(--border-radius); }
+        .details-info { flex: 1.2; min-width: 280px; }
+        .details-info h1 { font-size: 22px; margin-bottom: 8px; }
+        .details-price { font-size: 22px; color: var(--primary-color); font-weight: 700; margin: 10px 0; }
 
         /* ==================== FAB & MODALS ==================== */
         .fab-add {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 65px;
-            height: 65px;
+            bottom: 20px; right: 20px;
+            width: 50px; height: 50px;
             background: var(--accent-color);
             color: var(--white);
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            box-shadow: 0 8px 25px rgba(255, 111, 0, 0.5);
-            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px;
+            box-shadow: 0 4px 15px rgba(255, 111, 0, 0.4);
             z-index: 1001;
-            transition: var(--transition);
-        }
-
-        .fab-add:hover {
-            transform: scale(1.1) rotate(90deg);
-            background: var(--accent-hover);
         }
 
         .modal-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.6);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 2000;
-            overflow-y: auto;
-            padding: 20px;
-            backdrop-filter: blur(4px);
+            display: none; align-items: center; justify-content: center;
+            z-index: 2000; padding: 15px;
         }
 
         .modal-card {
             background: var(--white);
-            width: 100%;
-            max-width: 520px;
-            padding: 30px;
-            border-radius: var(--border-radius);
-            position: relative;
-            box-shadow: var(--modal-shadow);
-            animation: modalFadeIn 0.3s ease;
-        }
-
-        @keyframes modalFadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .modal-card h3 {
-            margin-bottom: 20px;
-            color: var(--primary-color);
-            font-size: 22px;
+            width: 100%; max-width: 480px;
+            padding: 20px; border-radius: var(--border-radius);
+            position: relative; max-height: 90vh; overflow-y: auto;
         }
 
         .modal-card input, .modal-card textarea, .modal-card select {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            outline: none;
-            font-size: 15px;
+            width: 100%; padding: 10px; margin-bottom: 12px;
+            border: 1px solid #ccc; border-radius: 6px; font-size: 14px;
         }
 
         .modal-card button {
-            width: 100%;
-            padding: 14px;
-            background: var(--primary-color);
-            color: var(--white);
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 700;
-            transition: var(--transition);
+            width: 100%; padding: 12px; background: var(--primary-color);
+            color: var(--white); border-radius: 6px; font-weight: 700;
         }
 
-        .modal-card button:hover {
-            background: var(--primary-dark);
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 24px;
-            cursor: pointer;
-            color: var(--text-muted);
-        }
-
-        /* CHECKOUT MODAL STYLES */
-        .payment-options {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 18px;
-        }
-
-        .pay-option {
-            flex: 1;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            text-align: center;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 14px;
-            transition: var(--transition);
-        }
-
-        .pay-option.selected {
-            border-color: var(--primary-color);
-            background: var(--primary-light);
-            color: var(--primary-color);
-        }
-
-        .error-msg {
-            color: #d32f2f;
-            background: #ffebee;
-            padding: 12px;
-            border-radius: 8px;
-            font-size: 14px;
-            margin-bottom: 15px;
-            display: none;
-            border: 1px solid #ffcdd2;
-        }
+        .close-modal { position: absolute; top: 15px; right: 15px; font-size: 20px; cursor: pointer; }
 
         /* ==================== FOOTER ==================== */
         footer {
-            background: #1e293b;
-            color: var(--white);
-            padding: 50px 5% 20px;
-            margin-top: auto;
+            background: #1e293b; color: var(--white);
+            padding: 30px 5% 15px; margin-top: auto;
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 40px;
-            max-width: 1300px;
-            margin: 0 auto 40px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px; max-width: 1300px; margin: 0 auto 20px;
         }
 
-        .footer-col h3, .footer-col h4 {
-            color: var(--white);
-            margin-bottom: 20px;
-            font-size: 20px;
-            position: relative;
-        }
+        .footer-col h3, .footer-col h4 { color: var(--white); margin-bottom: 12px; font-size: 18px; }
+        .footer-col p, .footer-col a { color: #cbd5e1; font-size: 14px; line-height: 1.8; display: block; }
+        .footer-bottom { text-align: center; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 13px; color: #94a3b8; }
 
-        .footer-col h4::after {
-            content: '';
-            display: block;
-            width: 30px;
-            height: 2px;
-            background: var(--primary-color);
-            margin-top: 5px;
-        }
-
-        .footer-col p, .footer-col a {
-            color: #cbd5e1;
-            font-size: 15px;
-            line-height: 2;
-            display: block;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .footer-col a:hover {
-            color: var(--primary-color);
-            padding-left: 5px;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 25px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 14px;
-            color: #94a3b8;
-        }
-
+        /* ==================== MOBILE RESPONSIVE MEDIA QUERIES ==================== */
         @media (max-width: 768px) {
+            .header-top {
+                flex-wrap: wrap;
+                padding: 10px 15px;
+            }
+
+            .logo { font-size: 20px; }
+
+            .search-bar {
+                order: 3;
+                flex: 1 0 100%;
+                margin-top: 5px;
+            }
+
+            .search-bar input { padding: 8px 14px; font-size: 13px; }
+            .search-bar button { padding: 8px 15px; font-size: 14px; }
+
+            .slider-container { height: 220px; }
+            .slide { padding: 20px; }
             .slide-img-right { display: none; }
-            .slide { padding: 30px 20px; }
-            .slide-content h2 { font-size: 26px; }
-            .header-top { flex-direction: column; gap: 15px; }
-            .search-bar { width: 100%; }
-            .nav-links { gap: 15px; }
+            .slide-content h2 { font-size: 20px; margin-bottom: 6px; }
+            .slide-content p { font-size: 12px; margin-bottom: 12px; }
+            .slide-btn { padding: 6px 16px; font-size: 12px; }
+
+            /* Mobile 2 Column Grid Layout */
+            .products-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+                padding: 0 10px;
+            }
+
+            .product-img-box { height: 140px; }
+            .product-info { padding: 8px; }
+            .product-title { font-size: 13px; margin-bottom: 4px; }
+            .product-price { font-size: 14px; }
+            .old-price { font-size: 11px; }
+
+            .card-buttons {
+                flex-direction: column;
+                gap: 5px;
+                padding: 0 8px 8px;
+            }
+
+            .btn-cart, .btn-buy {
+                width: 100%;
+                padding: 6px 0;
+                font-size: 11px;
+            }
+
             .details-wrapper { flex-direction: column; }
+            .main-details-img { height: 240px; }
         }
     </style>
 </head>
@@ -756,21 +500,19 @@
             <div class="logo" onclick="navigateTo('homeView')">
                 <i class="fa-solid fa-bag-shopping"></i> <span id="txt-logo">Asraf Shop</span>
             </div>
-            <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="Search products..." onkeyup="filterProducts()">
-                <button onclick="filterProducts()"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </div>
             <div class="header-icons">
                 <select id="langSwitch" class="lang-select" onchange="changeLanguage(this.value)">
                     <option value="en" selected>English</option>
                     <option value="bn">বাংলা</option>
                 </select>
-                <div class="icon-btn"><i class="fa-regular fa-user"></i></div>
-                <div class="icon-btn"><i class="fa-regular fa-heart"></i><span class="badge">0</span></div>
                 <div class="icon-btn" onclick="openCartCheckout()">
                     <i class="fa-solid fa-cart-shopping"></i>
                     <span class="badge" id="cartCount">0</span>
                 </div>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search products..." onkeyup="filterProducts()">
+                <button onclick="filterProducts()"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
         </div>
 
@@ -819,24 +561,6 @@
                         </div>
                         <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80" class="slide-img-right" alt="Shoes">
                     </div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1200&q=80');">
-                        <div class="slide-overlay"></div>
-                        <div class="slide-content">
-                            <h2>Digital Camera Deals</h2>
-                            <p>Best brand professional cameras for photography lovers.</p>
-                            <a href="#products" class="slide-btn">Order Now</a>
-                        </div>
-                        <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=500&q=80" class="slide-img-right" alt="Camera">
-                    </div>
-                    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=1200&q=80');">
-                        <div class="slide-overlay"></div>
-                        <div class="slide-content">
-                            <h2>Free Home Delivery!</h2>
-                            <p>Free nationwide delivery on orders over 1000 BDT.</p>
-                            <a href="#products" class="slide-btn">Start Shopping</a>
-                        </div>
-                        <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=500&q=80" class="slide-img-right" alt="Delivery">
-                    </div>
                 </div>
             </div>
         </section>
@@ -859,74 +583,29 @@
 
     <!-- ==================== PRODUCT DETAILS PAGE VIEW ==================== -->
     <div id="productDetailsPage" class="page-view">
-        <div class="back-btn" onclick="navigateTo('homeView')">
+        <div class="back-btn" onclick="navigateTo('homeView')" style="margin-bottom: 15px; color: var(--primary-color); cursor: pointer; font-weight: 700;">
             <i class="fa-solid fa-arrow-left"></i> <span id="txt-back">Back to Home</span>
         </div>
         <div class="details-wrapper">
             <div class="gallery-container">
                 <img id="mainImg" class="main-details-img" src="" alt="Product Main Image">
-                <div class="thumbnails-box" id="thumbGallery"></div>
+                <div class="thumbnails-box" id="thumbGallery" style="display: flex; gap: 8px; margin-top: 10px;"></div>
             </div>
             <div class="details-info">
                 <h1 id="detTitle"></h1>
-                <p id="detCategory" style="color: var(--primary-color); font-weight: 600; text-transform: uppercase; letter-spacing: 1px;"></p>
+                <p id="detCategory" style="color: var(--primary-color); font-weight: 600; text-transform: uppercase; font-size: 12px;"></p>
                 <div class="details-price" id="detPrice"></div>
-                <p class="details-desc" id="detDesc"></p>
+                <p class="details-desc" id="detDesc" style="line-height: 1.6; font-size: 14px; margin-bottom: 15px;"></p>
                 
-                <div style="margin-bottom: 25px;">
-                    <button onclick="copyProductLink()" style="padding: 8px 16px; background: #f0f0f0; border: 1px solid #ccc; border-radius: 6px; cursor: pointer; font-weight: 600;">
-                        <i class="fa-solid fa-share-nodes"></i> Copy Product Link
-                    </button>
-                </div>
-
-                <div class="details-actions">
-                    <button class="btn-cart" onclick="addToCart()"><i class="fa-solid fa-cart-plus"></i> <span id="txt-addcart">Add to Cart</span></button>
-                    <button class="btn-buy" onclick="triggerCheckout(activeProductID)"><i class="fa-solid fa-bolt"></i> <span id="txt-buynow">Buy Now</span></button>
+                <div class="details-actions" style="display: flex; gap: 10px;">
+                    <button class="btn-cart" onclick="addToCart()" style="padding: 10px 20px;"><i class="fa-solid fa-cart-plus"></i> <span id="txt-addcart">Add to Cart</span></button>
+                    <button class="btn-buy" onclick="triggerCheckout(activeProductID)" style="padding: 10px 20px;"><i class="fa-solid fa-bolt"></i> <span id="txt-buynow">Buy Now</span></button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- ==================== ABOUT US PAGE VIEW ==================== -->
-    <div id="aboutUsPage" class="page-view content-page">
-        <div class="back-btn" onclick="navigateTo('homeView')">
-            <i class="fa-solid fa-arrow-left"></i> <span>Back to Home</span>
-        </div>
-        <h1 id="aboutTitle">About Asraf Shop</h1>
-        <p id="aboutP1">Welcome to <strong>Asraf Shop</strong>, your premier destination for high-quality electronics, trendy fashion items, and durable footwear. Established with a commitment to trust and excellence, we bring you selected products at unbeatable prices.</p>
-        <p id="aboutP2">Our mission is to simplify online shopping by providing a seamless, secure, and user-friendly platform. Whether you are looking for smart gadgets or modern apparel, Asraf Shop ensures fast nationwide delivery and dedicated customer support.</p>
-        <h3>Why Choose Us?</h3>
-        <ul>
-            <li>100% Authentic & Hand-picked Products</li>
-            <li>Fast & Reliable Nationwide Cash on Delivery</li>
-            <li>Hassle-free 7-Day Return Policy</li>
-            <li>24/7 Dedicated Customer Service</li>
-        </ul>
-    </div>
-
-    <!-- ==================== RETURN POLICY PAGE VIEW ==================== -->
-    <div id="returnPolicyPage" class="page-view content-page">
-        <div class="back-btn" onclick="navigateTo('homeView')">
-            <i class="fa-solid fa-arrow-left"></i> <span>Back to Home</span>
-        </div>
-        <h1 id="returnTitle">Return & Refund Policy</h1>
-        <p id="returnP1">At <strong>Asraf Shop</strong>, customer satisfaction is our highest priority. If you are not completely satisfied with your purchase, we are here to help you return or exchange the item smoothly.</p>
-        
-        <h3>Conditions for Returns:</h3>
-        <ul>
-            <li>The item must be requested for return within <strong>7 days</strong> of receipt.</li>
-            <li>The product must be unused, unwashed, and in its original packaging with all tags attached.</li>
-            <li>Defective, damaged, or incorrect products sent from our end qualify for a 100% free return and replacement.</li>
-        </ul>
-
-        <h3>How to Request a Return:</h3>
-        <p>1. Contact our support team via WhatsApp/Phone at <strong>+880 1402-356113</strong> or email at <strong>support@asrafshop.com</strong>.</p>
-        <p>2. Share your Order ID along with photo/video proof of the product issue.</p>
-        <p>3. Once approved, hand over the package to our pickup courier or send it to our hub.</p>
-    </div>
-
     <!-- ==================== FAB & MODALS ==================== -->
-    <!-- Floating (+) Admin Upload Button -->
     <div class="fab-add" onclick="openUploadModal()" title="Add New Product (Admin Only)">
         <i class="fa-solid fa-plus"></i>
     </div>
@@ -935,11 +614,9 @@
     <div class="modal-overlay" id="uploadModal">
         <div class="modal-card">
             <span class="close-modal" onclick="closeUploadModal()">&times;</span>
-            <h3 id="modalTitle">Upload New Product (Admin)</h3>
-            <label style="font-weight: bold; display: block; margin-bottom: 5px;">Product Images (Select 3 to 6 images):</label>
+            <h3 id="modalTitle" style="margin-bottom: 15px;">Upload New Product</h3>
             <input type="file" id="prodImageInput" accept="image/*" multiple required>
             <input type="text" id="prodTitle" placeholder="Product Title" required>
-            <label style="font-weight: bold; display: block; margin-bottom: 5px;">Select Category:</label>
             <select id="prodCategory">
                 <option value="electronics">Electronics</option>
                 <option value="fashion">Fashion</option>
@@ -948,7 +625,7 @@
                 <option value="accessories">Accessories</option>
             </select>
             <input type="number" id="prodPrice" placeholder="Price (BDT)" required>
-            <textarea id="prodDesc" rows="4" placeholder="Product Description..." required></textarea>
+            <textarea id="prodDesc" rows="3" placeholder="Product Description..." required></textarea>
             <button onclick="submitNewProduct()">Upload Product</button>
         </div>
     </div>
@@ -957,26 +634,14 @@
     <div class="modal-overlay" id="checkoutModal">
         <div class="modal-card">
             <span class="close-modal" onclick="closeCheckoutModal()">&times;</span>
-            <h3 style="border-bottom: 2px solid var(--primary-color); padding-bottom: 8px;">Order Checkout</h3>
+            <h3 style="border-bottom: 2px solid var(--primary-color); padding-bottom: 8px; margin-bottom: 12px;">Order Checkout</h3>
             
-            <div id="errorAlert" class="error-msg"></div>
-
-            <p style="font-weight: 600; margin-bottom: 12px; color: var(--primary-dark);" id="orderItemTitle">Item: Processing...</p>
+            <p style="font-weight: 600; margin-bottom: 10px; font-size: 14px;" id="orderItemTitle">Item: Processing...</p>
 
             <input type="text" id="custName" placeholder="Full Name (আপনার নাম)" required>
             <input type="tel" id="custPhone" placeholder="Phone Number (১১ ডিজিট মোবাইল নম্বর)" required>
             <input type="email" id="custEmail" placeholder="Email Address (ইমেইল)" required>
             <textarea id="custAddress" rows="2" placeholder="Full Delivery Address (সম্পূর্ণ ঠিকানা)" required></textarea>
-
-            <label style="font-weight: bold; display: block; margin-bottom: 8px;">Select Payment Method:</label>
-            <div class="payment-options">
-                <div class="pay-option selected" id="opt-cod" onclick="selectPayment('cod')">
-                    <i class="fa-solid fa-hand-holding-dollar"></i><br>Cash on Delivery
-                </div>
-                <div class="pay-option" id="opt-whatsapp" onclick="selectPayment('whatsapp')">
-                    <i class="fa-brands fa-whatsapp" style="color: #25D366;"></i><br>WhatsApp Order
-                </div>
-            </div>
 
             <button onclick="processOrder()"><i class="fa-solid fa-check-circle"></i> Confirm Order</button>
         </div>
@@ -987,17 +652,12 @@
         <div class="footer-content">
             <div class="footer-col">
                 <h3>Asraf Shop</h3>
-                <p>Your trusted online shopping partner offering premium quality electronics, apparel, and shoes nationwide.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <a onclick="navigateTo('aboutUsPage')">About Us</a>
-                <a onclick="navigateTo('returnPolicyPage')">Return Policy</a>
+                <p>Your trusted online shopping partner offering premium quality products nationwide.</p>
             </div>
             <div class="footer-col">
                 <h4>Contact Support</h4>
-                <p><i class="fa-solid fa-envelope"></i> Email: support@asrafshop.com</p>
-                <p><i class="fa-brands fa-whatsapp"></i> WhatsApp: +880 1402-356113</p>
+                <p><i class="fa-solid fa-envelope"></i> support@asrafshop.com</p>
+                <p><i class="fa-brands fa-whatsapp"></i> +880 1402-356113</p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -1007,12 +667,11 @@
 
     <!-- ==================== JAVASCRIPT ==================== -->
     <script>
-        // Language & State Management
         let currentLang = localStorage.getItem('site_lang') || 'en';
         document.getElementById('langSwitch').value = currentLang;
 
         let currentSlide = 0;
-        const totalSlides = 5;
+        const totalSlides = 3;
         const slideTrack = document.getElementById('slideTrack');
 
         function nextSlide() {
@@ -1021,197 +680,42 @@
         }
         setInterval(nextSlide, 4500);
 
-        // Product Dataset with Multi-images
         const defaultProducts = [
             {
                 id: 1,
                 category: "shoes",
-                en: { name: "Premium Running Sports Shoes", category: "Shoes", desc: "These running sports shoes are extremely comfortable, lightweight, and durable for daily workouts and running." },
-                bn: { name: "প্রিমিয়াম রানিং স্পোর্টস শু", category: "জুতো", desc: "এই রানিং স্পোর্টস শু টি অত্যন্ত আরামদায়ক, হালকা এবং দীর্ঘস্থায়ী ব্যায়াম ও রানিং এর জন্য পারফেক্ট।" },
+                en: { name: "Premium Running Sports Shoes", desc: "Comfortable and durable sports shoes for workout." },
+                bn: { name: "প্রিমিয়াম রানিং স্পোর্টস শু", desc: "আরামদায়ক ও টেকসই স্পোর্টস শু।" },
                 price: 2800,
                 oldPrice: 3500,
-                images: [
-                    "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&w=600&q=80"
-                ]
+                images: ["https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80"]
             },
             {
                 id: 2,
                 category: "electronics",
-                en: { name: "Wireless Over-Ear Headphones", category: "Electronics", desc: "High-bass active noise-canceling Bluetooth headphones with over 40 hours of playback time." },
-                bn: { name: "ওয়ারলেস ওভার-ইয়ার হেডফোন", category: "ইলেকট্রনিক্স", desc: "হাই-বেস এক্টিভ নয়েজ ক্যানসেলেশন ও ৪০ ঘণ্টার বেশি ব্যাকআপ সমৃদ্ধ প্রিমিয়াম ব্লুটুথ হেডফোন।" },
+                en: { name: "Wireless Over-Ear Headphones", desc: "High-bass active noise canceling headphones." },
+                bn: { name: "ওয়ারলেস ওভার-ইয়ার হেডফোন", desc: "হাই-বেস নয়েজ ক্যানসেলেশন ব্লুটুথ হেডফোন।" },
                 price: 1850,
                 oldPrice: 2400,
-                images: [
-                    "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=600&q=80"
-                ]
+                images: ["https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80"]
             },
             {
                 id: 3,
                 category: "electronics",
-                en: { name: "Smart Fitness Watch Band", category: "Electronics", desc: "IP68 waterproof smartwatch with active heart rate monitor, AMOLED display, and sleep tracking." },
-                bn: { name: "স্মার্ট ফিটনেস ওয়াচ ব্যান্ড", category: "ইলেকট্রনিক্স", desc: "হার্ট রেট মনিটর, অ্যামোলেড ডিসপ্লে এবং স্লিপ ট্র্যাকিং সহ ওয়াটারপ্রুফ স্মার্ট ওয়াচ।" },
+                en: { name: "Smart Fitness Watch Band", desc: "Waterproof smartwatch with AMOLED display." },
+                bn: { name: "স্মার্ট ফিটনেস ওয়াচ ব্যান্ড", desc: "ওয়াটারপ্রুফ ডিসপ্লে সমৃদ্ধ স্মার্ট ওয়াচ।" },
                 price: 2200,
                 oldPrice: 2900,
-                images: [
-                    "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?auto=format&fit=crop&w=600&q=80"
-                ]
-            },
-            {
-                id: 4,
-                category: "electronics",
-                en: { name: "DSLR Professional Camera", category: "Electronics", desc: "4K ultra HD video recording camera with high optical zoom and interchangeable lens options." },
-                bn: { name: "ডিএসএলআর প্রফেশনাল ক্যামেরা", category: "ইলেকট্রনিক্স", desc: "হাই অপটিক্যাল জুম এবং লেন্স পরিবর্তনের সুবিধাসহ ৪কে আল্ট্রা এইচডি ভিডিও রেকর্ডিং ক্যামেরা।" },
-                price: 45000,
-                oldPrice: 52000,
-                images: [
-                    "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=600&q=80"
-                ]
-            },
-            {
-                id: 5,
-                category: "fashion",
-                en: { name: "Men's Stylish Casual Leather Jacket", category: "Fashion", desc: "Premium quality lightweight genuine leather jacket designed for modern urban style." },
-                bn: { name: "মেনস স্টাইলিশ ক্যাজুয়াল লেদার জ্যাকেট", category: "ফ্যাশন", desc: "আধুনিক স্টাইলের জন্য প্রিমিয়াম কোয়ালিটির রিয়েল লেদার লাইটওয়েট জ্যাকেট।" },
-                price: 3200,
-                oldPrice: 4000,
-                images: [
-                    "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1521223890158-f9f7c3d5d504?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1495105787522-5334e3ffa0ef?auto=format&fit=crop&w=600&q=80"
-                ]
-            },
-            {
-                id: 6,
-                category: "accessories",
-                en: { name: "Minimalist Classic Sunglasses", category: "Fashion", desc: "UV400 protection polaroid stylish sunglasses with high durability for everyday outdoor use." },
-                bn: { name: "মিনিমালিস্ট ক্লাসিক সানগ্লাস", category: "ফ্যাশন", desc: "প্রতিদিনের আউটডোর ব্যবহারের জন্য ইউভি৪০০ প্রটেকশন সহ অত্যন্ত টেকসই ও স্টাইলিশ সানগ্লাস।" },
-                price: 950,
-                oldPrice: 1500,
-                images: [
-                    "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1508296695146-257a814070b4?auto=format&fit=crop&w=600&q=80"
-                ]
-            },
-            {
-                id: 7,
-                category: "shoes",
-                en: { name: "Casual Canvas Sneakers", category: "Shoes", desc: "Trendy and lightweight breathable canvas sneakers suited for all casual outfits." },
-                bn: { name: "ক্যাজুয়াল ক্যানভাস স্নিকার্স", category: "জুতো", desc: "যেকোনো ক্যাজুয়াল আউটফিটের সাথে মানানসই হালকা ও আরামদায়ক ক্যানভাস স্নিকার্স।" },
-                price: 1650,
-                oldPrice: 2100,
-                images: [
-                    "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1512374382149-233c42b6a83b?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&w=600&q=80"
-                ]
-            },
-            {
-                id: 8,
-                category: "watches",
-                en: { name: "Classic Leather Strap Watch", category: "Watches", desc: "Elegant analog wrist watch with genuine leather strap and scratch-resistant glass." },
-                bn: { name: "ক্লাসিক লেদার স্ট্র্যাপ ওয়াচ", category: "ঘড়ি", desc: "জেনুইন লেদার স্ট্র্যাপ ও স্ক্র্যাচ-রেজিস্ট্যান্ট গ্লাস সহ মার্জিত অ্যানালগ হাতের ঘড়ি।" },
-                price: 2600,
-                oldPrice: 3200,
-                images: [
-                    "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80"
-                ]
-            },
-            {
-                id: 9,
-                category: "fashion",
-                en: { name: "Modern Graphic Bengali Hoodie", category: "Fashion", desc: "100% premium cotton fleece winter hoodie with trendy Bengali typography artwork." },
-                bn: { name: "মডার্ন গ্রাফিক্স বাংলা হুডি", category: "ফ্যাশন", desc: "প্রিমিয়াম ১০০% কটন ফ্লিস উইন্টার হুডি, ট্রেন্ডি বাংলা টাইপোগ্রাফি ডিজাইন সহ।" },
-                price: 1450,
-                oldPrice: 1900,
-                images: [
-                    "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1578587018452-892bacefd3f2?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1513782124394-58a3283b515d?auto=format&fit=crop&w=600&q=80"
-                ]
-            },
-            {
-                id: 10,
-                category: "electronics",
-                en: { name: "Pro Portable Bluetooth Speaker", category: "Electronics", desc: "360-degree surround sound portable speaker with deep bass and IPX7 waterproof rating." },
-                bn: { name: "প্রো পোর্টেবল ব্লুটুথ স্পিকার", category: "ইলেকট্রনিক্স", desc: "৩৬০ ডিগ্রী সারাউন্ড সাউন্ড ও ডিপ বেস সমৃদ্ধ ওয়াটারপ্রুফ পোর্টেবল স্পিকার।" },
-                price: 3100,
-                oldPrice: 4200,
-                images: [
-                    "https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1589003077984-894e133dabab?auto=format&fit=crop&w=600&q=80"
-                ]
-            },
-            {
-                id: 11,
-                category: "accessories",
-                en: { name: "Travel Laptop Backpack", category: "Accessories", desc: "Water-resistant multi-compartment business laptop bag with USB charging port." },
-                bn: { name: "ট্রাভেল ল্যাপটপ ব্যাকপ্যাক", category: "এক্সেসরিজ", desc: "ইউএসবি চার্জিং পোর্ট ও ওয়াটার-রেজিস্ট্যান্ট ফেব্রিক সহ মাল্টি-কম্পার্টমেন্ট ল্যাপটপ ব্যাগ।" },
-                price: 2100,
-                oldPrice: 2800,
-                images: [
-                    "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1546938576-6e6a64f317cc?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1577733966973-d680bffd2e80?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1509762774915-6ad926480d4c?auto=format&fit=crop&w=600&q=80"
-                ]
-            },
-            {
-                id: 12,
-                category: "shoes",
-                en: { name: "Formal Leather Oxford Shoes", category: "Shoes", desc: "Handcrafted genuine oxford leather shoes suited for business suits and formal wear." },
-                bn: { name: "ফরমাল লেদার অক্সফোর্ড শু", category: "জুতো", desc: "অফিসিয়াল ও ফরমাল স্যুট পেয়ারিংয়ের জন্য নিখুঁত হ্যান্ডক্রাফটেড লেদার অক্সফোর্ড শু।" },
-                price: 3900,
-                oldPrice: 4800,
-                images: [
-                    "https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1533867617858-e7b97e060509?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1478180168095-18102296222f?auto=format&fit=crop&w=600&q=80"
-                ]
+                images: ["https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80"]
             }
         ];
 
         let storedProducts = JSON.parse(localStorage.getItem('custom_products')) || [];
         let productsData = [...defaultProducts, ...storedProducts];
 
-        // Language Dictionary
         const uiText = {
-            en: {
-                searchPlaceholder: "Search products...",
-                navHome: "Home", navShop: "Shop", navElec: "Electronics", navFash: "Fashion", navShoes: "Shoes", navWatches: "Watches", navAcc: "Accessories",
-                popCat: "Popular Categories", allProd: "All Products", catElec: "Electronics", catFash: "Fashion", catShoes: "Shoes", catWatches: "Watches", catAcc: "Accessories",
-                ourProd: "Our Products", badgeOffer: "Offer", btnCart: "Cart", btnBuy: "Order Now",
-                backHome: "Back to Home", addCart: "Add to Cart", buyNow: "Buy Now",
-                aboutTitle: "About Asraf Shop",
-                returnTitle: "Return & Refund Policy"
-            },
-            bn: {
-                searchPlaceholder: "প্রোডাক্টের নাম দিয়ে খুঁজুন...",
-                navHome: "হোম", navShop: "শপ", navElec: "ইলেকট্রনিক্স", navFash: "ফ্যাশন", navShoes: "জুতো", navWatches: "ঘড়ি", navAcc: "এক্সেসরিজ",
-                popCat: "পপুলার ক্যাটাগরি", allProd: "সব প্রোডাক্ট", catElec: "ইলেকট্রনিক্স", catFash: "ফ্যাশন", catShoes: "জুতো", catWatches: "ঘড়ি", catAcc: "এক্সেসরিজ",
-                ourProd: "আমাদের প্রোডাক্টসমূহ", badgeOffer: "অফার", btnCart: "কার্ট", btnBuy: "অর্ডার করুন",
-                backHome: "হোমপেজে ফিরে যান", addCart: "কার্টে যোগ করুন", buyNow: "অর্ডার করুন (Buy Now)",
-                aboutTitle: "আমাদের সম্পর্কে (About Us)",
-                returnTitle: "রিটার্ন ও রিফান্ড পলিসি"
-            }
+            en: { searchPlaceholder: "Search products...", navHome: "Home", navShop: "Shop", navElec: "Electronics", navFash: "Fashion", navShoes: "Shoes", navWatches: "Watches", navAcc: "Accessories", popCat: "Popular Categories", allProd: "All", catElec: "Electronics", catFash: "Fashion", catShoes: "Shoes", catWatches: "Watches", catAcc: "Accessories", ourProd: "Our Products", badgeOffer: "Offer", btnCart: "Cart", btnBuy: "Order", backHome: "Back", addCart: "Add to Cart", buyNow: "Buy Now" },
+            bn: { searchPlaceholder: "প্রোডাক্ট খুঁজুন...", navHome: "হোম", navShop: "শপ", navElec: "ইলেকট্রনিক্স", navFash: "ফ্যাশন", navShoes: "জুতো", navWatches: "ঘড়ি", navAcc: "এক্সেসরিজ", popCat: "পপুলার ক্যাটাগরি", allProd: "সব", catElec: "ইলেকট্রনিক্স", catFash: "ফ্যাশন", catShoes: "জুতো", catWatches: "ঘড়ি", catAcc: "এক্সেসরিজ", ourProd: "আমাদের প্রোডাক্টসমূহ", badgeOffer: "অফার", btnCart: "কার্ট", btnBuy: "অর্ডার", backHome: "ফিরে যান", addCart: "কার্টে রাখুন", buyNow: "অর্ডার করুন" }
         };
 
         function changeLanguage(lang) {
@@ -1242,16 +746,10 @@
             document.getElementById('txt-back').innerText = t.backHome;
             document.getElementById('txt-addcart').innerText = t.addCart;
             document.getElementById('txt-buynow').innerText = t.buyNow;
-            document.getElementById('aboutTitle').innerText = t.aboutTitle;
-            document.getElementById('returnTitle').innerText = t.returnTitle;
         }
 
-        // Single Page Navigation
         function navigateTo(pageId) {
-            document.querySelectorAll('.page-view').forEach(page => {
-                page.classList.remove('active-page');
-            });
-
+            document.querySelectorAll('.page-view').forEach(page => page.classList.remove('active-page'));
             const targetPage = document.getElementById(pageId);
             if (targetPage) {
                 targetPage.classList.add('active-page');
@@ -1266,7 +764,7 @@
             const t = uiText[currentLang];
 
             if (items.length === 0) {
-                productGrid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; font-size: 18px; color: #777;">No products found!</p>`;
+                productGrid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: #777;">No products found!</p>`;
                 return;
             }
 
@@ -1287,7 +785,7 @@
                         </div>
                     </div>
                     <div class="card-buttons">
-                        <button class="btn-cart" onclick="addToCart()"><i class="fa-solid fa-cart-shopping"></i> ${t.btnCart}</button>
+                        <button class="btn-cart" onclick="addToCart()">${t.btnCart}</button>
                         <button class="btn-buy" onclick="triggerCheckout(${product.id})">${t.btnBuy}</button>
                     </div>
                 `;
@@ -1300,11 +798,8 @@
             const activeBtn = document.getElementById(`btn-${cat}`);
             if (activeBtn) activeBtn.classList.add('active');
 
-            if (cat === 'all') {
-                displayProducts(productsData);
-            } else {
-                displayProducts(productsData.filter(p => p.category === cat));
-            }
+            if (cat === 'all') displayProducts(productsData);
+            else displayProducts(productsData.filter(p => p.category === cat));
         }
 
         function filterCategoryDirect(cat) {
@@ -1325,7 +820,7 @@
         function addToCart() {
             cartCount++;
             document.getElementById('cartCount').innerText = cartCount;
-            alert(currentLang === 'en' ? 'Product added to cart successfully!' : 'পণ্যটি সফলভাবে কার্টে যোগ করা হয়েছে!');
+            alert(currentLang === 'en' ? 'Added to cart!' : 'কার্টে যোগ করা হয়েছে!');
         }
 
         let activeProductID = null;
@@ -1337,40 +832,16 @@
             const prodInfo = product[currentLang] || product['en'];
             document.getElementById('detTitle').innerText = prodInfo.name;
             document.getElementById('detCategory').innerText = `Category: ${product.category}`;
-            document.getElementById('detPrice').innerText = `Price: ৳${product.price}`;
+            document.getElementById('detPrice').innerText = `৳${product.price}`;
             document.getElementById('detDesc').innerText = prodInfo.desc;
             
             const mainImg = document.getElementById('mainImg');
             mainImg.src = product.images[0];
 
-            // Render Multi-Image Thumbnails
-            const thumbBox = document.getElementById('thumbGallery');
-            thumbBox.innerHTML = '';
-            product.images.forEach((imgUrl, index) => {
-                const img = document.createElement('img');
-                img.src = imgUrl;
-                img.className = `thumb-img ${index === 0 ? 'active' : ''}`;
-                img.onclick = function() {
-                    mainImg.src = imgUrl;
-                    document.querySelectorAll('.thumb-img').forEach(t => t.classList.remove('active'));
-                    img.classList.add('active');
-                };
-                thumbBox.appendChild(img);
-            });
-
             navigateTo('productDetailsPage');
         }
 
-        function copyProductLink() {
-            const link = window.location.origin + window.location.pathname + `?product=${activeProductID}`;
-            navigator.clipboard.writeText(link);
-            alert("Product Link Copied to Clipboard!");
-        }
-
-        /* ==================== CHECKOUT SYSTEM ==================== */
         let checkoutProduct = null;
-        let selectedPayMethod = 'cod';
-
         function triggerCheckout(prodId) {
             checkoutProduct = productsData.find(p => p.id === prodId);
             if (!checkoutProduct) return;
@@ -1378,77 +849,36 @@
             const name = (checkoutProduct[currentLang] || checkoutProduct['en']).name;
             document.getElementById('orderItemTitle').innerText = `Item: ${name} (৳${checkoutProduct.price})`;
             document.getElementById('checkoutModal').style.display = 'flex';
-            document.getElementById('errorAlert').style.display = 'none';
         }
 
         function openCartCheckout() {
             if(cartCount === 0) {
-                alert("আপনার কার্ট খালি! যেকোনো প্রোডাক্ট কার্টে যোগ করুন।");
+                alert("আপনার কার্ট খালি!");
                 return;
             }
-            document.getElementById('orderItemTitle').innerText = `Cart Total Items: ${cartCount}`;
+            document.getElementById('orderItemTitle').innerText = `Total Items in Cart: ${cartCount}`;
             document.getElementById('checkoutModal').style.display = 'flex';
-            document.getElementById('errorAlert').style.display = 'none';
         }
 
-        function closeCheckoutModal() {
-            document.getElementById('checkoutModal').style.display = 'none';
-        }
-
-        function selectPayment(method) {
-            selectedPayMethod = method;
-            document.getElementById('opt-cod').classList.remove('selected');
-            document.getElementById('opt-whatsapp').classList.remove('selected');
-
-            if(method === 'cod') {
-                document.getElementById('opt-cod').classList.add('selected');
-            } else {
-                document.getElementById('opt-whatsapp').classList.add('selected');
-            }
-        }
+        function closeCheckoutModal() { document.getElementById('checkoutModal').style.display = 'none'; }
 
         function processOrder() {
             const name = document.getElementById('custName').value.trim();
             const phone = document.getElementById('custPhone').value.trim();
-            const email = document.getElementById('custEmail').value.trim();
             const address = document.getElementById('custAddress').value.trim();
 
-            if(!name || !phone || !email || !address) {
-                showError("❌ সমস্যা: দয়া করে আপনার নাম, ফোন নম্বর, ইমেইল এবং ঠিকানা সঠিকভাবে পূরণ করুন।");
+            if(!name || !phone || !address) {
+                alert("দয়া করে নাম, ফোন নম্বর এবং ঠিকানা সঠিকভাবে দিন।");
                 return;
             }
 
-            if(phone.length < 11 || isNaN(phone)) {
-                showError("❌ সমস্যা: আপনার ১১ ডিজিটের সঠিক মোবাইল নম্বরটি লিখুন।");
-                return;
-            }
-
-            if (selectedPayMethod === 'whatsapp') {
-                const itemDetails = checkoutProduct ? (checkoutProduct[currentLang] || checkoutProduct['en']).name : `${cartCount} items in cart`;
-                const message = `Hello, I want to place an order:%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Email:* ${email}%0A*Address:* ${address}%0A*Order:* ${itemDetails}`;
-                window.open(`https://wa.me/8801402356113?text=${message}`, '_blank');
-            } else {
-                alert(`🎉 অভিনন্দন ${name}!\n\nআপনার অর্ডারটি সফলভাবে জমা হয়েছে।\nপেমেন্ট মেথড: Cash On Delivery\nখুব শীঘ্রই আমাদের প্রতিনিধি আপনার সাথে যোগাযোগ করবেন।`);
-            }
-            
+            alert(`🎉 অভিনন্দন ${name}!\n\nআপনার অর্ডারটি সফলভাবে জমা হয়েছে।`);
             closeCheckoutModal();
             cartCount = 0;
             document.getElementById('cartCount').innerText = 0;
-            document.getElementById('custName').value = '';
-            document.getElementById('custPhone').value = '';
-            document.getElementById('custEmail').value = '';
-            document.getElementById('custAddress').value = '';
         }
 
-        function showError(msg) {
-            const errorAlert = document.getElementById('errorAlert');
-            errorAlert.innerText = msg;
-            errorAlert.style.display = 'block';
-        }
-
-        /* ==================== ADMIN PRODUCT UPLOAD ==================== */
         const ADMIN_PASS = "1234";
-
         function openUploadModal() {
             const password = prompt("অ্যাডমিন পাসওয়ার্ড দিন:");
             if (password === ADMIN_PASS) {
@@ -1458,9 +888,7 @@
             }
         }
 
-        function closeUploadModal() {
-            document.getElementById('uploadModal').style.display = 'none';
-        }
+        function closeUploadModal() { document.getElementById('uploadModal').style.display = 'none'; }
 
         function submitNewProduct() {
             const imgInput = document.getElementById('prodImageInput');
@@ -1470,28 +898,20 @@
             const desc = document.getElementById('prodDesc').value.trim();
 
             if (!imgInput.files.length || !title || !price || !desc) {
-                alert("দয়া করে সবগুলো তথ্য সঠিকভাবে পূরণ করুন!");
+                alert("সবগুলো ঘর পূরণ করুন!");
                 return;
             }
 
-            const files = Array.from(imgInput.files);
-            const imagePromises = files.map(file => {
-                return new Promise((resolve) => {
-                    const reader = new FileReader();
-                    reader.onload = (e) => resolve(e.target.result);
-                    reader.readAsDataURL(file);
-                });
-            });
-
-            Promise.all(imagePromises).then(uploadedImages => {
+            const reader = new FileReader();
+            reader.onload = function(e) {
                 const newProduct = {
                     id: Date.now(),
                     category: category,
-                    en: { name: title, category: category, desc: desc },
-                    bn: { name: title, category: category, desc: desc },
+                    en: { name: title, desc: desc },
+                    bn: { name: title, desc: desc },
                     price: Number(price),
                     oldPrice: Number(price) + 300,
-                    images: uploadedImages
+                    images: [e.target.result]
                 };
 
                 storedProducts.push(newProduct);
@@ -1500,11 +920,11 @@
 
                 displayProducts(productsData);
                 closeUploadModal();
-                alert("প্রোডাক্টটি সফলভাবে আপলোড এবং লাইভ করা হয়েছে!");
-            });
+                alert("প্রোডাক্ট লাইভ করা হয়েছে!");
+            };
+            reader.readAsDataURL(imgInput.files[0]);
         }
 
-        // INITIALIZATION
         window.onload = function() {
             updateUI();
             displayProducts(productsData);
