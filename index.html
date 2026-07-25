@@ -432,6 +432,85 @@
             cursor: pointer;
         }
 
+        /* ----- FLOATING ADD BUTTON & MODAL ----- */
+        .fab-add {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background: var(--accent-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            cursor: pointer;
+            z-index: 1001;
+            transition: var(--transition);
+        }
+        .fab-add:hover {
+            transform: scale(1.1) rotate(90deg);
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top:0; left:0; width:100%; height:100%;
+            background: rgba(0,0,0,0.6);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        .modal-card {
+            background: var(--white);
+            width: 90%;
+            max-width: 500px;
+            padding: 25px;
+            border-radius: 12px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .modal-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .modal-card input, .modal-card textarea, .modal-card select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .modal-card button {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 20px;
+            cursor: pointer;
+            color: #777;
+        }
+
         /* FOOTER */
         footer {
             background: #1e293b;
@@ -465,7 +544,7 @@
 </head>
 <body>
 
-    <!-- Header Section -->
+    <!-- হেডার -->
     <header class="header">
         <div class="header-top">
             <div class="logo" onclick="showMainHome()">
@@ -473,10 +552,9 @@
             </div>
             <div class="search-bar">
                 <input type="text" id="searchInput" placeholder="Search products..." onkeyup="filterProducts()">
-                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button onclick="filterProducts()"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
             <div class="header-icons">
-                <!-- Language Switcher -->
                 <select id="langSwitch" class="lang-select" onchange="changeLanguage(this.value)">
                     <option value="en" selected>English</option>
                     <option value="bn">বাংলা</option>
@@ -493,7 +571,7 @@
         <nav class="navbar">
             <ul class="nav-links">
                 <li><a href="#" onclick="showMainHome()" id="nav-home">Home</a></li>
-                <li><a href="#products" id="nav-shop">Shop</a></li>
+                <li><a href="#products" onclick="showMainHome()" id="nav-shop">Shop</a></li>
                 <li><a href="#products" onclick="filterCategoryDirect('electronics')" id="nav-elec">Electronics</a></li>
                 <li><a href="#products" onclick="filterCategoryDirect('fashion')" id="nav-fash">Fashion</a></li>
                 <li><a href="#products" onclick="filterCategoryDirect('shoes')" id="nav-shoes">Shoes</a></li>
@@ -501,9 +579,8 @@
         </nav>
     </header>
 
-    <!-- Main Homepage View -->
+    <!-- মূল হোমপেজ কন্টেন্ট -->
     <div id="mainHomeView">
-        <!-- Banner Slider -->
         <section class="slider-section">
             <div class="slider-container">
                 <div class="slide-track" id="slideTrack">
@@ -560,7 +637,7 @@
             </div>
         </section>
 
-        <!-- Category Filter Chips -->
+        <!-- ক্যাটাগরি -->
         <div class="section-title" id="title-categories">Popular Categories</div>
         <div class="categories">
             <div class="category-chip active" id="btn-all" onclick="filterCategory('all')">All Products</div>
@@ -569,12 +646,12 @@
             <div class="category-chip" id="btn-shoes" onclick="filterCategory('shoes')">Shoes</div>
         </div>
 
-        <!-- Product Listing Grid -->
-        <div class="section-title" id="title-products">Our Products</div>
+        <!-- প্রোডাক্ট লিস্ট -->
+        <div class="section-title" id="products">Our Products</div>
         <div class="products-container" id="productGrid"></div>
     </div>
 
-    <!-- Product Details View Page -->
+    <!-- প্রোডাক্ট বিস্তারিত দেখার পেজ -->
     <div id="productDetailsPage">
         <div class="back-btn" onclick="showMainHome()"><i class="fa-solid fa-arrow-left"></i> <span id="txt-back">Back to Home</span></div>
         <div class="details-wrapper">
@@ -587,15 +664,46 @@
                 <p id="detCategory" style="color: #777; font-weight: 600;"></p>
                 <div class="details-price" id="detPrice"></div>
                 <p class="details-desc" id="detDesc"></p>
+                
+                <!-- লিংক শেয়ার সুবিধা -->
+                <div style="margin-bottom: 20px;">
+                    <button onclick="copyProductLink()" style="padding: 6px 12px; background: #eee; border: 1px solid #ccc; border-radius: 4px; cursor: pointer;">
+                        <i class="fa-solid fa-share-nodes"></i> Copy Product Link
+                    </button>
+                </div>
+
                 <div class="details-actions">
                     <button class="btn-cart" onclick="addToCart()"><i class="fa-solid fa-cart-plus"></i> <span id="txt-addcart">Add to Cart</span></button>
-                    <button class="btn-buy" onclick="alert(currentLang === 'en' ? 'Processing your order!' : 'আপনার অর্ডারটি প্রক্রিয়াকরণ করা হচ্ছে!')"><i class="fa-solid fa-bolt"></i> <span id="txt-buynow">Buy Now</span></button>
+                    <button class="btn-buy" onclick="alert(currentLang === 'en' ? 'Processing your order!' : 'আপনার অর্ডারটি প্রক্রিয়াকরণ করা হচ্ছে!')"><i class="fa-solid fa-bolt"></i> <span id="txt-buynow">Buy Now</span></button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer Section -->
+    <!-- ফ্লটিং প্লাস (+) বাটন -->
+    <div class="fab-add" onclick="openUploadModal()" title="Add New Product (Admin Only)">
+        <i class="fa-solid fa-plus"></i>
+    </div>
+
+    <!-- প্রোডাক্ট আপলোড করার পপ-আপ (Modal) -->
+    <div class="modal-overlay" id="uploadModal">
+        <div class="modal-card">
+            <span class="close-modal" onclick="closeUploadModal()">&times;</span>
+            <h3 id="modalTitle">Upload New Product (Admin)</h3>
+            <input type="file" id="prodImageInput" accept="image/*" required>
+            <input type="text" id="prodTitle" placeholder="Product Title" required>
+            <select id="prodCategory">
+                <option value="electronics">Electronics</option>
+                <option value="fashion">Fashion</option>
+                <option value="shoes">Shoes</option>
+            </select>
+            <input type="number" id="prodPrice" placeholder="Price (BDT)" required>
+            <textarea id="prodDesc" rows="4" placeholder="Product Description..." required></textarea>
+            <button onclick="submitNewProduct()">Upload Product</button>
+        </div>
+    </div>
+
+    <!-- ফুটার -->
     <footer>
         <div class="footer-content">
             <div>
@@ -623,11 +731,7 @@
         let currentLang = localStorage.getItem('site_lang') || 'en';
         document.getElementById('langSwitch').value = currentLang;
 
-        let cartCounter = 0;
-        let selectedCategory = 'all';
-        let activeProduct = null;
-
-        // Slider Logic
+        // স্লাইডার লজিক
         let currentSlide = 0;
         const totalSlides = 5;
         const slideTrack = document.getElementById('slideTrack');
@@ -638,340 +742,286 @@
         }
         setInterval(nextSlide, 4500);
 
-        // Bilingual Products Database
-        const productsData = [
+        // ডিফল্ট ডামি প্রোডাক্টস
+        const defaultProducts = [
             {
                 id: 1,
-                en: { name: "Premium Running Sports Shoes", category: "shoes", desc: "These running sports shoes are extremely comfortable and durable. Ideal for running or casual wear. Features breathable mesh fabric that keeps feet dry." },
-                bn: { name: "প্রিমিয়াম রানিং স্পোর্টস শু", category: "জুতো", desc: "এই রানিং স্পোর্টস শু টি অত্যন্ত আরামদায়ক এবং টেকসই। রানিং বা ক্যাজুয়াল ব্যবহারের জন্য আদর্শ। এতে রয়েছে ব্রিদেবল মেষ ফেব্রিক যা পা ঘামতে দেয় না।" },
+                category: "shoes",
+                en: { name: "Premium Running Sports Shoes", category: "Shoes", desc: "These running sports shoes are extremely comfortable and durable. Ideal for running or casual wear." },
+                bn: { name: "প্রিমিয়াম রানিং স্পোর্টস শু", category: "জুতো", desc: "এই রানিং স্পোর্টস শু টি অত্যন্ত আরামদায়ক এবং টেকসই। রানিং বা ক্যাজুয়াল ব্যবহারের জন্য আদর্শ।" },
                 price: 2800,
                 oldPrice: 3500,
-                images: [
-                    "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=600&q=80"
-                ]
+                images: ["https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80"]
             },
             {
                 id: 2,
-                en: { name: "Wireless Over-Ear Headphones", category: "electronics", desc: "High-bass noise-canceling Bluetooth headphones. Provides up to 20 hours of backup on a single full charge. Perfect choice for gamers and music lovers." },
-                bn: { name: "ওয়ারলেস ওভার-ইয়ার হেডফোন", category: "ইলেকট্রনিক্স", desc: "হাই-বেস নয়েজ ক্যানসেলেশন ব্লুটুথ হেডফোন। একবার ফুল চার্জে ২০ ঘণ্টা পর্যন্ত ব্যাকআপ দেয়। গেমার্স ও মিউজিক লাভারদের জন্য পারফেক্ট পছন্দ।" },
+                category: "electronics",
+                en: { name: "Wireless Over-Ear Headphones", category: "Electronics", desc: "High-bass noise-canceling Bluetooth headphones. Provides up to 20 hours of backup." },
+                bn: { name: "ওয়ারলেস ওভার-ইয়ার হেডফোন", category: "ইলেকট্রনিক্স", desc: "হাই-বেস নয়েজ ক্যানসেলেশন ব্লুটুথ হেডফোন। একবার ফুল চার্জে ২০ ঘণ্টা পর্যন্ত ব্যাকআপ দেয়।" },
                 price: 1850,
                 oldPrice: 2400,
-                images: [
-                    "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=600&q=80"
-                ]
+                images: ["https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80"]
             },
             {
                 id: 3,
-                en: { name: "Smart Fitness Watch Band", category: "electronics", desc: "Waterproof smartwatch with heart rate monitor, sleep tracking, and sports modes. Outstanding performance with a stylish look." },
-                bn: { name: "স্মার্ট ফিটনেস ওয়াচ ব্যান্ড", category: "ইলেকট্রনিক্স", desc: "হার্ট রেট মনিটর, স্লিপ ট্র্যাকিং এবং স্পোর্টস মোড সহ ওয়াটারপ্রুফ স্মার্ট ওয়াচ। স্টাইলিশ লুকের সাথে অসাধারণ পারফরম্যান্স।" },
+                category: "electronics",
+                en: { name: "Smart Fitness Watch Band", category: "Electronics", desc: "Waterproof smartwatch with heart rate monitor, sleep tracking, and sports modes." },
+                bn: { name: "স্মার্ট ফিটনেস ওয়াচ ব্যান্ড", category: "ইলেকট্রনিক্স", desc: "হার্ট রেট মনিটর, স্লিপ ট্র্যাকিং এবং স্পোর্টস মোড সহ ওয়াটারপ্রুফ স্মার্ট ওয়াচ।" },
                 price: 2200,
                 oldPrice: 2900,
-                images: [
-                    "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=600&q=80"
-                ]
-            },
-            {
-                id: 4,
-                en: { name: "Casual Black T-Shirt", category: "fashion", desc: "Extremely comfortable casual t-shirt made of 100% premium cotton fabric. Color fast and easy to wash." },
-                bn: { name: "ক্যাজুয়াল ব্ল্যাক টি-শার্ট", category: "ফ্যাশন", desc: "১০০% প্রিমিয়াম কটন ফেব্রিক দিয়ে তৈরি অত্যন্ত আরামদায়ক ক্যাজুয়াল টি-শার্ট। রং পাকা এবং সহজে ধোয়া যায়।" },
-                price: 650,
-                oldPrice: 950,
-                images: [
-                    "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=600&q=80"
-                ]
-            },
-            {
-                id: 5,
-                en: { name: "Professional DSLR Camera", category: "electronics", desc: "Best professional photography camera with 24 megapixel lens and 4K video recording feature." },
-                bn: { name: "প্রফেশনাল ডিএসএলআর ক্যামেরা", category: "ইলেকট্রনিক্স", desc: "২৪ মেগাপিক্সেল লেন্স এবং 4K ভিডিও রেকর্ডিং সুবিধা সহ সেরা প্রফেশনাল ফটোগ্রাফি ক্যামেরা।" },
-                price: 45000,
-                oldPrice: 52000,
-                images: [
-                    "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=600&q=80"
-                ]
-            },
-            {
-                id: 6,
-                en: { name: "Classic Leather Travel Bag", category: "fashion", desc: "Sturdy and spacious backpack made of genuine leather. Ideal for holding laptop and travel essentials." },
-                bn: { name: "ক্লাসিক লেদার ট্রাভেল ব্যাগ", category: "ফ্যাশন", desc: "জেনুইন লেদার দিয়ে তৈরি মজবুত ও জায়গাবহুল ব্যাকপ্যাক। ল্যাপটপ ও ভ্রমণের সরঞ্জাম রাখার জন্য আদর্শ।" },
-                price: 3400,
-                oldPrice: 4200,
-                images: [
-                    "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&w=600&q=80"
-                ]
-            },
-            {
-                id: 7,
-                en: { name: "Smart Portable Bluetooth Speaker", category: "electronics", desc: "Waterproof mini speaker. Suitable for use in any outdoor party with clear sound and heavy bass." },
-                bn: { name: "স্মার্ট পোর্টেবল ব্লুটুথ স্পিকার", category: "ইলেকট্রনিক্স", desc: "ওয়াটারপ্রুফ মিনি স্পিকার। ক্লিয়ার সাউন্ড এবং হেভি বেস সহ যেকোনো আউটডোর পার্টিতে ব্যবহারের জন্য উপযোগী।" },
-                price: 1550,
-                oldPrice: 2100,
-                images: [
-                    "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=600&q=80"
-                ]
-            },
-            {
-                id: 8,
-                en: { name: "Stylish Sunglasses - UV Protection", category: "fashion", desc: "UV-400 protection sunglasses. Gives a great fashionable look along with eye protection." },
-                bn: { name: "স্টাইলিশ সানগ্লাস - ইউভি প্রোটেকশন", category: "ফ্যাশন", desc: "ইউভি-৪০০ প্রোটেকশন সানগ্লাস। চোখের সুরক্ষার পাশাপাশি চমৎকার ফ্যাশনেবল লুক দেবে।" },
-                price: 890,
-                oldPrice: 1300,
-                images: [
-                    "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=600&q=80"
-                ]
-            },
-            {
-                id: 9,
-                en: { name: "White Sneakers - Latest Design", category: "shoes", desc: "Casual and trendy white sneakers. Looks great with jeans or shorts." },
-                bn: { name: "হোয়াইট স্নেকার্স - লেটেস্ট ডিজাইন", category: "জুতো", desc: "ক্যাজুয়াল ও ট্রেন্ডি হোয়াইট স্নেকার্স। জিন্স বা শর্টস যেকোনো পোশাকের সাথে দারুণ মানাবে।" },
-                price: 2150,
-                oldPrice: 2800,
-                images: [
-                    "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=600&q=80"
-                ]
-            },
-            {
-                id: 10,
-                en: { name: "Analog Luxury Men's Watch", category: "electronics", desc: "Classic hand watch of premium quality with stainless steel strap and water-resistant dial." },
-                bn: { name: "এনালগ লাক্সারি মেনস ওয়াচ", category: "ইলেকট্রনিক্স", desc: "স্টেইনলেস স্টিল স্ট্র্যাপ ও ওয়াটার রেজিস্ট্যান্ট ডায়াল সহ প্রিমিয়াম কোয়ালিটির ক্লাসিক হাতঘড়ি।" },
-                price: 3800,
-                oldPrice: 4900,
-                images: [
-                    "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80",
-                    "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=600&q=80"
-                ]
+                images: ["https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80"]
             }
         ];
 
-        // UI Translation Dictionary
+        // LocalStorage থেকে আপলোড হওয়া নতুন প্রোডাক্ট আনা
+        let storedProducts = JSON.parse(localStorage.getItem('custom_products')) || [];
+        let productsData = [...defaultProducts, ...storedProducts];
+
+        // UI টেক্সট অনুবাদ
         const uiText = {
             en: {
                 searchPlaceholder: "Search products...",
-                navHome: "Home",
-                navShop: "Shop",
-                navElec: "Electronics",
-                navFash: "Fashion",
-                navShoes: "Shoes",
-                popCat: "Popular Categories",
-                allProd: "All Products",
-                catElec: "Electronics",
-                catFash: "Fashion",
-                catShoes: "Shoes",
-                ourProd: "Our Products",
-                badgeOffer: "Offer",
-                btnCart: "Add Cart",
-                btnBuy: "Order Now",
-                backHome: "Back to Home",
-                addCart: "Add to Cart",
-                buyNow: "Buy Now",
-                footerDesc: "Your trusted online shopping partner.",
-                quickLinks: "Quick Links",
-                aboutUs: "About Us",
-                returnPolicy: "Return Policy",
-                contact: "Contact",
-                rights: "&copy; 2026 Asraf Shop. All rights reserved."
+                navHome: "Home", navShop: "Shop", navElec: "Electronics", navFash: "Fashion", navShoes: "Shoes",
+                popCat: "Popular Categories", allProd: "All Products", catElec: "Electronics", catFash: "Fashion", catShoes: "Shoes",
+                ourProd: "Our Products", badgeOffer: "Offer", btnCart: "Cart", btnBuy: "Order Now",
+                backHome: "Back to Home", addCart: "Add to Cart", buyNow: "Buy Now",
+                footerDesc: "Your trusted online shopping partner.", quickLinks: "Quick Links", aboutUs: "About Us", returnPolicy: "Return Policy", contact: "Contact", rights: "&copy; 2026 Asraf Shop. All rights reserved."
             },
             bn: {
-                searchPlaceholder: "প্রোডাক্টের নাম দিয়ে খুঁজুন...",
-                navHome: "হোম",
-                navShop: "শপ",
-                navElec: "ইলেকট্রনিক্স",
-                navFash: "ফ্যাশন",
-                navShoes: "জুতো",
-                popCat: "পপুলার ক্যাটাগরি",
-                allProd: "সব প্রোডাক্ট",
-                catElec: "ইলেকট্রনিক্স",
-                catFash: "ফ্যাশন",
-                catShoes: "জুতো",
-                ourProd: "আমাদের প্রোডাক্টসমূহ",
-                badgeOffer: "অফার",
-                btnCart: "কার্ট",
-                btnBuy: "অর্ডার করুন",
-                backHome: "হোমপেজে ফিরে যান",
-                addCart: "কার্টে যোগ করুন",
-                buyNow: "কিনুন",
-                footerDesc: "আপনার বিশ্বস্ত অনলাইন শপিং পার্টনার।",
-                quickLinks: "দ্রুত লিঙ্ক",
-                aboutUs: "আমাদের সম্পর্কে",
-                returnPolicy: "রিটার্ন পলিসি",
-                contact: "যোগাযোগ",
-                rights: "&copy; ২০২৬ আশরাফ শপ। সর্বস্বত্ব সংরক্ষিত।"
+                searchPlaceholder: "প্রোডাক্টের নাম দিয়ে খুঁজুন...",
+                navHome: "হোম", navShop: "শপ", navElec: "ইলেকট্রনিক্স", navFash: "ফ্যাশন", navShoes: "জুতো",
+                popCat: "পপুলার ক্যাটাগরি", allProd: "সব প্রোডাক্ট", catElec: "ইলেকট্রনিক্স", catFash: "ফ্যাশন", catShoes: "জুতো",
+                ourProd: "আমাদের প্রোডাক্টসমূহ", badgeOffer: "অফার", btnCart: "কার্ট", btnBuy: "অর্ডার করুন",
+                backHome: "হোমপেজে ফিরে যান", addCart: "কার্টে যোগ করুন", buyNow: "অর্ডার করুন (Buy Now)",
+                footerDesc: "আপনার বিশ্বস্ত অনলাইন শপিং পার্টনার।", quickLinks: "কুইক লিংক", aboutUs: "আমাদের সম্পর্কে", returnPolicy: "রিটার্ন পলিসি", contact: "যোগাযোগ", rights: "&copy; ২০২৬ আশরাফ শপ। সর্বস্বত্ব সংরক্ষিত।"
             }
         };
 
-        // Render Product Cards
-        function renderProducts(productsToRender) {
-            const grid = document.getElementById('productGrid');
-            grid.innerHTML = "";
-
-            if(productsToRender.length === 0) {
-                grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; padding: 40px; color: #777;">${currentLang === 'en' ? 'No products found!' : 'কোনো প্রোডাক্ট পাওয়া যায়নি!'}</p>`;
-                return;
-            }
-
-            productsToRender.forEach(prod => {
-                const langData = prod[currentLang];
-                const card = document.createElement('div');
-                card.className = 'product-card';
-                card.innerHTML = `
-                    <div class="product-img-box" onclick="openProductDetails(${prod.id})">
-                        <span class="product-badge">${uiText[currentLang].badgeOffer}</span>
-                        <img src="${prod.images[0]}" alt="${langData.name}">
-                    </div>
-                    <div class="product-info" onclick="openProductDetails(${prod.id})">
-                        <div class="product-title">${langData.name}</div>
-                        <div class="product-price">
-                            ৳${prod.price} 
-                            <span class="old-price">৳${prod.oldPrice}</span>
-                        </div>
-                    </div>
-                    <div class="card-buttons">
-                        <button class="btn-cart" onclick="addToCart()">${uiText[currentLang].btnCart}</button>
-                        <button class="btn-buy" onclick="openProductDetails(${prod.id})">${uiText[currentLang].btnBuy}</button>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
-        }
-
-        // Language Switcher Functionality
         function changeLanguage(lang) {
             currentLang = lang;
             localStorage.setItem('site_lang', lang);
-            
-            // Update UI static strings
-            document.getElementById('searchInput').placeholder = uiText[lang].searchPlaceholder;
-            document.getElementById('nav-home').innerText = uiText[lang].navHome;
-            document.getElementById('nav-shop').innerText = uiText[lang].navShop;
-            document.getElementById('nav-elec').innerText = uiText[lang].navElec;
-            document.getElementById('nav-fash').innerText = uiText[lang].navFash;
-            document.getElementById('nav-shoes').innerText = uiText[lang].navShoes;
-            
-            document.getElementById('title-categories').innerText = uiText[lang].popCat;
-            document.getElementById('btn-all').innerText = uiText[lang].allProd;
-            document.getElementById('btn-electronics').innerText = uiText[lang].catElec;
-            document.getElementById('btn-fashion').innerText = uiText[lang].catFash;
-            document.getElementById('btn-shoes').innerText = uiText[lang].catShoes;
-            document.getElementById('title-products').innerText = uiText[lang].ourProd;
-
-            document.getElementById('txt-back').innerText = uiText[lang].backHome;
-            document.getElementById('txt-addcart').innerText = uiText[lang].addCart;
-            document.getElementById('txt-buynow').innerText = uiText[lang].buyNow;
-
-            document.getElementById('footer-desc').innerText = uiText[lang].footerDesc;
-            document.getElementById('footer-quick').innerText = uiText[lang].quickLinks;
-            document.getElementById('footer-about').innerText = uiText[lang].aboutUs;
-            document.getElementById('footer-return').innerText = uiText[lang].returnPolicy;
-            document.getElementById('footer-contact').innerText = uiText[lang].contact;
-            document.getElementById('footer-copy').innerHTML = uiText[lang].rights;
-
-            // Re-render current filter category
-            filterCategory(selectedCategory, false);
-
-            // If product details view is open, update its texts too
-            if(activeProduct) {
-                openProductDetails(activeProduct.id, false);
-            }
+            updateUI();
+            displayProducts(productsData);
         }
 
-        // Category Filtering
-        function filterCategory(category, updateChipUI = true) {
-            selectedCategory = category;
-            
-            if(updateChipUI) {
-                document.querySelectorAll('.category-chip').forEach(chip => chip.classList.remove('active'));
-                if(category === 'all') document.getElementById('btn-all').classList.add('active');
-                if(category === 'electronics') document.getElementById('btn-electronics').classList.add('active');
-                if(category === 'fashion') document.getElementById('btn-fashion').classList.add('active');
-                if(category === 'shoes') document.getElementById('btn-shoes').classList.add('active');
-            }
-
-            if(category === 'all') {
-                renderProducts(productsData);
-            } else {
-                const filtered = productsData.filter(p => p.en.category === category);
-                renderProducts(filtered);
-            }
+        function updateUI() {
+            const t = uiText[currentLang];
+            document.getElementById('searchInput').placeholder = t.searchPlaceholder;
+            document.getElementById('nav-home').innerText = t.navHome;
+            document.getElementById('nav-shop').innerText = t.navShop;
+            document.getElementById('nav-elec').innerText = t.navElec;
+            document.getElementById('nav-fash').innerText = t.navFash;
+            document.getElementById('nav-shoes').innerText = t.navShoes;
+            document.getElementById('title-categories').innerText = t.popCat;
+            document.getElementById('btn-all').innerText = t.allProd;
+            document.getElementById('btn-electronics').innerText = t.catElec;
+            document.getElementById('btn-fashion').innerText = t.catFash;
+            document.getElementById('btn-shoes').innerText = t.catShoes;
+            document.getElementById('products').innerText = t.ourProd;
+            document.getElementById('txt-back').innerText = t.backHome;
+            document.getElementById('txt-addcart').innerText = t.addCart;
+            document.getElementById('txt-buynow').innerText = t.buyNow;
+            document.getElementById('footer-desc').innerText = t.footerDesc;
+            document.getElementById('footer-quick').innerText = t.quickLinks;
+            document.getElementById('footer-about').innerText = t.aboutUs;
+            document.getElementById('footer-return').innerText = t.returnPolicy;
+            document.getElementById('footer-contact').innerText = t.contact;
+            document.getElementById('footer-copy').innerHTML = t.rights;
         }
 
-        function filterCategoryDirect(category) {
-            filterCategory(category);
-        }
+        const productGrid = document.getElementById('productGrid');
 
-        // Search Bar Live Filtering
-        function filterProducts() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            const filtered = productsData.filter(p => {
-                const nameEn = p.en.name.toLowerCase();
-                const nameBn = p.bn.name.toLowerCase();
-                return nameEn.includes(query) || nameBn.includes(query);
+        function displayProducts(items) {
+            productGrid.innerHTML = '';
+            const t = uiText[currentLang];
+
+            if (items.length === 0) {
+                productGrid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; font-size: 18px; color: #777;">${currentLang === 'en' ? 'No products found!' : 'কোনো পণ্য পাওয়া যায়নি!'}</p>`;
+                return;
+            }
+
+            items.forEach(product => {
+                const prodInfo = product[currentLang] || product['en']; 
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <div class="product-img-box" onclick="openProductPage(${product.id})">
+                        <span class="product-badge">${t.badgeOffer}</span>
+                        <img src="${product.images[0]}" alt="${prodInfo.name}">
+                    </div>
+                    <div class="product-info" onclick="openProductPage(${product.id})">
+                        <div class="product-title">${prodInfo.name}</div>
+                        <div>
+                            <span class="product-price">৳${product.price}</span>
+                            ${product.oldPrice ? `<span class="old-price">৳${product.oldPrice}</span>` : ''}
+                        </div>
+                    </div>
+                    <div class="card-buttons">
+                        <button class="btn-cart" onclick="addToCart()"><i class="fa-solid fa-cart-shopping"></i> ${t.btnCart}</button>
+                        <button class="btn-buy" onclick="openProductPage(${product.id})">${t.btnBuy}</button>
+                    </div>
+                `;
+                productGrid.appendChild(card);
             });
-            renderProducts(filtered);
         }
 
-        // Open Product Details Page
-        function openProductDetails(id, switchView = true) {
+        // ক্যাটাগরি ও সার্চ ইঞ্জিনের বাগ দূর করা
+        function filterCategory(cat) {
+            document.querySelectorAll('.category-chip').forEach(btn => btn.classList.remove('active'));
+            const activeBtn = document.getElementById(`btn-${cat}`);
+            if (activeBtn) activeBtn.classList.add('active');
+
+            if (cat === 'all') {
+                displayProducts(productsData);
+            } else {
+                displayProducts(productsData.filter(p => p.category === cat));
+            }
+        }
+
+        function filterCategoryDirect(cat) {
+            showMainHome();
+            filterCategory(cat);
+        }
+
+        function filterProducts() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const filtered = productsData.filter(p => {
+                const name = (p[currentLang] || p['en']).name.toLowerCase();
+                return name.includes(query);
+            });
+            displayProducts(filtered);
+        }
+
+        let cartCount = 0;
+        function addToCart() {
+            cartCount++;
+            document.getElementById('cartCount').innerText = cartCount;
+            alert(currentLang === 'en' ? 'Product added to cart successfully!' : 'পণ্যটি সফলভাবে কার্টে যোগ করা হয়েছে!');
+        }
+
+        // প্রোডাক্ট বিস্তারিত দেখা ও লিংক হ্যান্ডলিং
+        let activeProductID = null;
+        function openProductPage(id, updateHistory = true) {
             const product = productsData.find(p => p.id === id);
-            if(!product) return;
-            activeProduct = product;
-            const langData = product[currentLang];
+            if (!product) return;
+            
+            activeProductID = id;
+            const prodInfo = product[currentLang] || product['en'];
+            document.getElementById('detTitle').innerText = prodInfo.name;
+            document.getElementById('detCategory').innerText = `${currentLang === 'en' ? 'Category: ' : 'ক্যাটাগরি: '}${product.category.toUpperCase()}`;
+            document.getElementById('detPrice').innerText = `${currentLang === 'en' ? 'Price: ৳' : 'মূল্য: ৳'}${product.price}`;
+            document.getElementById('detDesc').innerText = prodInfo.desc;
+            
+            const mainImg = document.getElementById('mainImg');
+            mainImg.src = product.images[0];
 
-            document.getElementById('mainImg').src = product.images[0];
-            document.getElementById('detTitle').innerText = langData.name;
-            document.getElementById('detCategory').innerText = `${currentLang === 'en' ? 'Category: ' : 'ক্যাটাগরি: '}${langData.category.toUpperCase()}`;
-            document.getElementById('detPrice').innerText = `৳${product.price} `;
-            document.getElementById('detDesc').innerText = langData.desc;
-
-            // Render gallery thumbnails
             const thumbList = document.getElementById('thumbnailList');
-            thumbList.innerHTML = "";
-            product.images.forEach((imgUrl, index) => {
+            thumbList.innerHTML = '';
+            product.images.forEach((imgUrl, idx) => {
                 const thumb = document.createElement('img');
                 thumb.src = imgUrl;
-                thumb.className = `thumb-img ${index === 0 ? 'active' : ''}`;
-                thumb.onclick = () => {
-                    document.getElementById('mainImg').src = imgUrl;
+                thumb.className = `thumb-img ${idx === 0 ? 'active' : ''}`;
+                thumb.onclick = function() {
+                    mainImg.src = imgUrl;
                     document.querySelectorAll('.thumb-img').forEach(t => t.classList.remove('active'));
                     thumb.classList.add('active');
                 };
                 thumbList.appendChild(thumb);
             });
 
-            if(switchView) {
-                document.getElementById('mainHomeView').style.display = 'none';
-                document.getElementById('productDetailsPage').style.display = 'block';
-                window.scrollTo({top: 0, behavior: 'smooth'});
+            document.getElementById('mainHomeView').style.display = 'none';
+            document.getElementById('productDetailsPage').style.display = 'block';
+            window.scrollTo(0, 0);
+
+            // URL আপডেট (যাতে এই লিংক কপি করে দিলে অন্য কেউ দেখতে পারে)
+            if(updateHistory) {
+                history.pushState({ productId: id }, '', `?product=${id}`);
             }
         }
 
-        // Return to Homepage
         function showMainHome() {
-            activeProduct = null;
             document.getElementById('productDetailsPage').style.display = 'none';
             document.getElementById('mainHomeView').style.display = 'block';
-            window.scrollTo({top: 0, behavior: 'smooth'});
+            window.scrollTo(0, 0);
+            history.pushState(null, '', window.location.pathname);
         }
 
-        // Add to Cart Simulation
-        function addToCart() {
-            cartCounter++;
-            document.getElementById('cartCount').innerText = cartCounter;
-            alert(currentLang === 'en' ? 'Product added to cart successfully!' : 'সফলভাবে কারտে প্রোডাক্ট যোগ করা হয়েছে!');
+        function copyProductLink() {
+            const link = window.location.origin + window.location.pathname + `?product=${activeProductID}`;
+            navigator.clipboard.writeText(link);
+            alert("Product Link Copied to Clipboard!");
         }
 
-        // Initial Load Render
-        renderProducts(productsData);
+        // ==================== অ্যাডমিন প্রোডাক্ট আপলোড সিস্টেম ==================== //
+        const ADMIN_PASS = "1234"; // ডিফল্ট সিকিউরিটি পাসওয়ার্ড
+
+        function openUploadModal() {
+            const password = prompt("শুধুমাত্র ওয়েবসাইটের মালিক অ্যাডমিন পাসওয়ার্ড দিন:");
+            if (password === ADMIN_PASS) {
+                document.getElementById('uploadModal').style.display = 'flex';
+            } else if (password !== null) {
+                alert("ভুল পাসওয়ার্ড! আপনি প্রোডাক্ট আপলোড করতে পারবেন না।");
+            }
+        }
+
+        function closeUploadModal() {
+            document.getElementById('uploadModal').style.display = 'none';
+        }
+
+        function submitNewProduct() {
+            const imgInput = document.getElementById('prodImageInput');
+            const title = document.getElementById('prodTitle').value.trim();
+            const category = document.getElementById('prodCategory').value;
+            const price = document.getElementById('prodPrice').value;
+            const desc = document.getElementById('prodDesc').value.trim();
+
+            if (!imgInput.files[0] || !title || !price || !desc) {
+                alert("দয়া করে সবগুলো ঘর পূরণ করুন এবং একটি ছবি নির্বাচন করুন!");
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const newProduct = {
+                    id: Date.now(),
+                    category: category,
+                    en: { name: title, category: category, desc: desc },
+                    bn: { name: title, category: category, desc: desc },
+                    price: Number(price),
+                    oldPrice: Number(price) + 300,
+                    images: [e.target.result]
+                };
+
+                // নতুন প্রোডাক্ট সেভ করা
+                storedProducts.push(newProduct);
+                localStorage.setItem('custom_products', JSON.stringify(storedProducts));
+                productsData.push(newProduct);
+
+                displayProducts(productsData);
+                closeUploadModal();
+                alert("প্রোডাক্টটি সফলভাবে আপলোড এবং লাইভ করা হয়েছে!");
+
+                // ফর্ম ক্লিয়ার
+                document.getElementById('prodTitle').value = '';
+                document.getElementById('prodPrice').value = '';
+                document.getElementById('prodDesc').value = '';
+                imgInput.value = '';
+            };
+
+            reader.readAsDataURL(imgInput.files[0]);
+        }
+
+        // ইউআরএল থেকে নির্দিষ্ট প্রোডাক্ট সরাসরি ওপেন করার লজিক Check
+        window.onload = function() {
+            updateUI();
+            displayProducts(productsData);
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('product');
+            if (productId) {
+                openProductPage(Number(productId), false);
+            }
+        };
     </script>
 </body>
 </html>
